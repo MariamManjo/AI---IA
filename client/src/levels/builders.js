@@ -36,12 +36,12 @@ export function L1() {
 </div>
 <div class="vis-band" style="margin-bottom:20px">
   <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop&h=200" alt="AI Neural Network" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop&h=200" alt="AI Neural Network" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">AI Today</div>
     <div class="vis-photo-cap">Modern AI — billions of parameters, human-level capabilities</div>
   </div>
   <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=400&q=80&fit=crop&h=200" alt="Chess Deep Blue" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=400&q=90&fit=crop&h=200" alt="Chess Deep Blue" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">1997</div>
     <div class="vis-photo-cap">Deep Blue defeats world chess champion Kasparov</div>
   </div>
@@ -123,13 +123,13 @@ export function L2() {
   <div class="c-label">Business Cases</div>
   <div class="brand-row">
     ${[
-      ['Netflix','Churn Prediction','$1B+ saved/year via retention AI','$1B+','photo-1574375927938-d5a98e8ffe85'],
-      ['Stripe','Fraud Detection','99%+ accuracy · <100ms per transaction','99%','photo-1563986768609-322da13575f3'],
-      ['Amazon','Demand Forecast','30% reduction in stockouts','−30%','photo-1607082348824-0a96f2a4b9da'],
-      ['Spotify','Discover Weekly','40M+ listeners personalized weekly','40M+','photo-1614680376573-df3480f0c6ff']
-    ].map(([c,t,s,stat,pid]) => `
+      ['Netflix','Churn Prediction','$1B+ saved/year via retention AI','$1B+','#e50914','🎬'],
+      ['Stripe','Fraud Detection','99%+ accuracy · <100ms per transaction','99%','#635bff','💳'],
+      ['Amazon','Demand Forecast','30% reduction in stockouts','−30%','#ff9900','📦'],
+      ['Spotify','Discover Weekly','40M+ listeners personalized weekly','40M+','#1db954','🎵']
+    ].map(([c,t,s,stat,bg,icon]) => `
     <div class="brand-card">
-      <div class="brand-photo"><img src="https://images.unsplash.com/photo-${pid}?w=120&q=70&fit=crop&h=120" alt="${c}" loading="lazy"></div>
+      <div class="brand-photo" style="background:${bg}20;border:1.5px solid ${bg}40;display:flex;align-items:center;justify-content:center;font-size:26px;color:${bg}">${icon}</div>
       <div class="brand-text">
         <div class="brand-case">${t}</div>
         <div class="brand-name">${c}</div>
@@ -223,7 +223,7 @@ export function L4() {
 <div class="case-row">
   <div class="case-card">
     <div class="case-photo">
-      <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=500&q=70&fit=crop&h=130" alt="Courtroom" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=500&q=70&fit=crop&h=130" alt="Courtroom" loading="lazy" onerror="this.parentElement.style.display='none'">
       <div class="case-badge badge-high">Real Case</div>
     </div>
     <div class="case-body">
@@ -233,7 +233,7 @@ export function L4() {
   </div>
   <div class="case-card">
     <div class="case-photo">
-      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500&q=70&fit=crop&h=130" alt="Medical" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500&q=70&fit=crop&h=130" alt="Medical" loading="lazy" onerror="this.parentElement.style.display='none'">
       <div class="case-badge badge-high">Medical Risk</div>
     </div>
     <div class="case-body">
@@ -243,7 +243,7 @@ export function L4() {
   </div>
   <div class="case-card">
     <div class="case-photo">
-      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&q=70&fit=crop&h=130" alt="Airplane" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&q=70&fit=crop&h=130" alt="Airplane" loading="lazy" onerror="this.parentElement.style.display='none'">
       <div class="case-badge badge-med">Legal Ruling</div>
     </div>
     <div class="case-body">
@@ -322,15 +322,15 @@ export function L5() {
 </div>
 <div class="platform-grid" style="margin-bottom:20px">
   <div class="platform-card">
-    <div class="platform-img"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=500&q=70&fit=crop&h=100" alt="Perplexity" loading="lazy"></div>
+    <div class="platform-img"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=500&q=80&fit=crop&h=100" alt="Perplexity" loading="lazy" onerror="this.parentElement.style.background='rgba(245,158,11,.08)';this.style.display='none'"></div>
     <div class="platform-body">
-      <div class="platform-tag">Answer Engine · $9B Valuation</div>
+      <div class="platform-tag">Answer Engine · $14B Valuation</div>
       <div class="platform-name">Perplexity AI</div>
       <div class="platform-desc">Live web search + AI synthesis with source citations. 10M+ daily users. Rivals Google for research tasks.</div>
     </div>
   </div>
   <div class="platform-card">
-    <div class="platform-img"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=70&fit=crop&h=100" alt="NotebookLM" loading="lazy"></div>
+    <div class="platform-img"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=70&fit=crop&h=100" alt="NotebookLM" loading="lazy" onerror="this.parentElement.style.background='rgba(245,158,11,.08)';this.style.display='none'"></div>
     <div class="platform-body">
       <div class="platform-tag">Google · Document-Grounded AI</div>
       <div class="platform-name">NotebookLM</div>
@@ -338,7 +338,7 @@ export function L5() {
     </div>
   </div>
   <div class="platform-card">
-    <div class="platform-img"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=70&fit=crop&h=100" alt="Microsoft Copilot" loading="lazy"></div>
+    <div class="platform-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80&fit=crop&h=100" alt="Microsoft Copilot" loading="lazy" onerror="this.parentElement.style.background='rgba(245,158,11,.08)';this.style.display='none'"></div>
     <div class="platform-body">
       <div class="platform-tag">Microsoft · Enterprise</div>
       <div class="platform-name">Microsoft Copilot</div>
@@ -346,7 +346,7 @@ export function L5() {
     </div>
   </div>
   <div class="platform-card">
-    <div class="platform-img"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&q=70&fit=crop&h=100" alt="You.com" loading="lazy"></div>
+    <div class="platform-img"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&q=80&fit=crop&h=100" alt="You.com" loading="lazy" onerror="this.parentElement.style.background='rgba(245,158,11,.08)';this.style.display='none'"></div>
     <div class="platform-body">
       <div class="platform-tag">Search · Developer API</div>
       <div class="platform-name">You.com</div>
@@ -410,12 +410,12 @@ export function L6() {
   <div class="c-label">Real Products (2024–25)</div>
   <div style="display:flex;flex-direction:column;gap:8px">
     ${[
-      ['photo-1485827404703-89b55fcc595e','Anthropic','Claude Computer Use','Sees your screen · clicks · types · operates computer autonomously. Released Oct 2024.'],
-      ['photo-1555066931-4365d14bab8c','OpenAI','Operator (Jan 2025)','Browses web, fills forms, books appointments. First commercial AI agent product.'],
-      ['photo-1498050108023-c5249f4df085','Cognition','Devin AI','Full AI software engineer — reads issues, writes code, deploys. $2B valuation.']
-    ].map(([pid,co,n,d]) => `
+      ['#f59e0b','⚡','Anthropic','Claude Computer Use','Sees your screen · clicks · types · operates computer autonomously. Released Oct 2024.'],
+      ['#10b981','🤖','OpenAI','Operator (Jan 2025)','Browses web, fills forms, books appointments. First commercial AI agent product.'],
+      ['#6366f1','💻','Cognition','Devin AI','Full AI software engineer — reads issues, writes code, deploys. $3B valuation.']
+    ].map(([bg,icon,co,n,d]) => `
     <div style="display:flex;gap:10px;align-items:center;padding:10px;background:rgba(255,248,235,.03);border:1px solid var(--border);border-radius:12px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
-      <div style="width:44px;height:44px;border-radius:10px;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-${pid}?w=80&q=70&fit=crop&h=80" alt="${n}" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(.7)"></div>
+      <div style="width:44px;height:44px;border-radius:10px;flex-shrink:0;background:${bg}22;border:1.5px solid ${bg}44;display:flex;align-items:center;justify-content:center;font-size:20px">${icon}</div>
       <div><div style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:.8px;text-transform:uppercase">${co}</div><div style="font-size:12px;font-weight:700;color:var(--text)">${n}</div><div style="font-size:11px;color:var(--muted)">${d}</div></div>
     </div>`).join('')}
   </div>
@@ -440,12 +440,12 @@ export function L7() {
 </div>
 <div class="vis-band" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:20px">
   <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=70&fit=crop&h=200" alt="Brain Memory" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=70&fit=crop&h=200" alt="Brain Memory" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">Biological Memory</div>
     <div class="vis-photo-cap">How brains store information — inspiration for AI memory systems</div>
   </div>
   <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=500&q=70&fit=crop&h=200" alt="Vector Database" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=500&q=70&fit=crop&h=200" alt="Vector Database" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">Vector Database</div>
     <div class="vis-photo-cap">High-dimensional embedding space — similar concepts cluster together</div>
   </div>
@@ -616,17 +616,17 @@ export function L10() {
 </div>
 <div class="vis-band" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:20px">
   <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&q=70&fit=crop&h=200" alt="Security" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&q=70&fit=crop&h=200" alt="Security" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">OWASP LLM Top 10</div>
     <div class="vis-photo-cap">AI security threats — production systems face real attacks</div>
   </div>
   <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=500&q=70&fit=crop&h=200" alt="WhatsApp Bot" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=500&q=80&fit=crop&h=200" alt="WhatsApp Bot" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">2B+ Users</div>
     <div class="vis-photo-cap">WhatsApp chatbot deployment — webhook + LLM + Business API</div>
   </div>
   <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=70&fit=crop&h=200" alt="Data Center" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=70&fit=crop&h=200" alt="Data Center" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">Production Scale</div>
     <div class="vis-photo-cap">Enterprise AI infrastructure — cost, scale, and reliability</div>
   </div>
