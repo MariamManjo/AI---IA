@@ -382,3 +382,71 @@ body::after{content:'';position:fixed;bottom:-100px;right:-100px;width:600px;hei
 .cert-btn{display:block;margin:18px auto 0;padding:12px 36px;font-size:13px;font-weight:700;background:linear-gradient(90deg,#f59e0b,#f97316);border:none;border-radius:12px;color:#000;cursor:pointer;transition:all .2s}
 .cert-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(245,158,11,.35)}
 
+/* ── ANIMATED PLATFORM HEADERS ─────────────── */
+@keyframes ringPulse{0%{transform:translate(-50%,-50%) scale(.4);opacity:.8}100%{transform:translate(-50%,-50%) scale(2.2);opacity:0}}
+@keyframes floatDot{0%,100%{transform:translateY(0) scale(1);opacity:.7}50%{transform:translateY(-6px) scale(1.1);opacity:1}}
+@keyframes termBlink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes gridPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+@keyframes chatBubble{from{opacity:0;transform:translateY(8px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes typingDot{0%,80%,100%{transform:scale(0.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+@keyframes signalTravel{0%{stroke-dashoffset:100;opacity:0}10%{opacity:1}90%{opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes nodePulse{0%,100%{box-shadow:0 0 0 0 currentColor}50%{box-shadow:0 0 0 6px transparent}}
+
+.plat-anim{height:100%;width:100%;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:90px}
+/* Perplexity - search rings */
+.pla-search{background:linear-gradient(135deg,#0d1b3e,#1a0d3e)}
+.pla-ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1.5px solid rgba(96,165,250,.4);animation:ringPulse 2s ease-out infinite}
+.pla-ring.r1{width:30px;height:30px;animation-delay:0s}
+.pla-ring.r2{width:30px;height:30px;animation-delay:.7s}
+.pla-ring.r3{width:30px;height:30px;animation-delay:1.4s}
+.pla-icon{font-size:22px;position:relative;z-index:2;filter:drop-shadow(0 0 8px #60a5fa)}
+.pla-tag{position:absolute;font-size:9px;font-weight:700;color:#60a5fa99;letter-spacing:1px;animation:floatDot 2.5s ease-in-out infinite}
+/* NotebookLM - document */
+.pla-docs{background:linear-gradient(135deg,#1a2d1a,#0d1f2d)}
+.nb-page{position:absolute;font-size:20px;animation:floatDot 3s ease-in-out infinite}
+.nb-page.p1{left:20%;top:15%;animation-delay:0s}
+.nb-page.p2{left:35%;top:30%;animation-delay:.5s;opacity:.7;transform:scale(.9)}
+.nb-page.p3{left:50%;top:20%;animation-delay:1s;opacity:.5;transform:scale(.8)}
+.nb-spark{position:absolute;right:20%;top:50%;font-size:22px;animation:floatDot 2s ease-in-out infinite reverse}
+/* Copilot - enterprise grid */
+.pla-grid{background:linear-gradient(135deg,#0d1f3e,#1a1a3e)}
+.cp-node{position:absolute;width:8px;height:8px;background:#60a5fa44;border:1.5px solid #60a5fa66;border-radius:50%;animation:gridPulse 2s ease-in-out infinite}
+.cp-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:22px;filter:drop-shadow(0 0 10px #60a5fa)}
+/* You.com - terminal */
+.pla-term{background:linear-gradient(135deg,#0a1a0a,#0d2d0a)}
+.yc-terminal{font-family:'SF Mono','Fira Code',monospace;font-size:10px;padding:12px 16px;position:relative;z-index:2;width:100%;max-width:220px}
+.yc-line{color:#34d399;line-height:1.8;animation:slideIn .4s ease both}
+.yc-cursor{display:inline-block;width:6px;height:12px;background:#34d399;animation:termBlink 1s infinite}
+
+/* ── TOOL CALL FLOW ─────────────────────────── */
+@keyframes tfFadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.tool-flow{display:flex;flex-direction:column;gap:0;margin-top:8px}
+.tf-step{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:rgba(255,248,235,.02);animation:tfFadeIn .5s ease both}
+.tf-step:nth-child(1){animation-delay:.1s}.tf-step:nth-child(3){animation-delay:.3s}.tf-step:nth-child(5){animation-delay:.5s}.tf-step:nth-child(7){animation-delay:.7s}
+.tf-num{width:20px;height:20px;border-radius:50%;background:rgba(245,158,11,.15);border:1px solid var(--amber);color:var(--amber);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.tf-icon{font-size:18px;flex-shrink:0;margin-top:-1px}
+.tf-label{font-size:9px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px}
+.tf-val{font-family:'SF Mono','Fira Code',monospace;font-size:11px;color:var(--text)}
+.tf-arr{text-align:center;color:var(--border2);font-size:11px;padding:2px 0;line-height:1}
+.tf-ok{color:var(--green)}.tf-blue{color:var(--blue)}.tf-purple{color:var(--purple)}
+
+/* ── ANIMATED CHAT (L10) ────────────────────── */
+.chat-vis{background:linear-gradient(160deg,#0a1a0f,#0c1a0f) !important}
+.chat-vis img{display:none !important}
+.cv-inner{padding:12px;width:100%;height:100%;display:flex;flex-direction:column;gap:6px;position:relative;z-index:2}
+.cv-header{display:flex;align-items:center;gap:8px;padding-bottom:8px;border-bottom:1px solid rgba(52,211,153,.2);margin-bottom:4px}
+.cv-avatar{width:28px;height:28px;border-radius:50%;background:rgba(52,211,153,.2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.cv-hname{font-size:11px;font-weight:700;color:var(--green)}
+.cv-online{font-size:9px;color:var(--green);opacity:.7}
+.cv-msg{max-width:80%;padding:6px 10px;border-radius:12px;font-size:10px;line-height:1.5;animation:chatBubble .4s ease both}
+.cv-msg.user{align-self:flex-end;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.2);color:var(--cream);border-radius:12px 12px 4px 12px}
+.cv-msg.bot{align-self:flex-start;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);color:var(--text);border-radius:12px 12px 12px 4px}
+.cv-typing span{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--green);margin:0 2px;animation:typingDot 1.2s infinite}
+.cv-typing span:nth-child(2){animation-delay:.2s}.cv-typing span:nth-child(3){animation-delay:.4s}
+
+/* ── ENHANCED NEURAL NET ────────────────────── */
+@keyframes nnSignal{0%{stroke-dashoffset:80;opacity:0}15%{opacity:1}85%{opacity:.8}100%{stroke-dashoffset:0;opacity:0}}
+.nn-signal-line{stroke-dasharray:8 80;animation:nnSignal 1.8s linear infinite}
+.nn-node{animation:nodePulse 2s ease-in-out infinite}
+

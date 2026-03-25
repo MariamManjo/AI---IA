@@ -85,10 +85,10 @@ export function charts6() {
     mkChart('c6a', 'line', {
       labels: ['2019','2020','2021','2022','2023','2024','2025'],
       datasets: [
-        { label: 'Task Success %', data: [20,28,38,52,67,80,88], borderColor: COLORS[0], backgroundColor: COLORS[0] + '18', fill: true, tension: .4, pointBackgroundColor: COLORS[0] },
-        { label: 'Tool Diversity', data: [5,8,12,20,35,60,85], borderColor: COLORS[5], backgroundColor: COLORS[5] + '12', fill: true, tension: .4, pointBackgroundColor: COLORS[5] },
+        { label: 'Task Success %', data: [20,28,38,52,67,80,88], borderColor: COLORS[0], backgroundColor: COLORS[0] + '18', fill: true, tension: .4, pointBackgroundColor: COLORS[0], pointRadius: 4 },
+        { label: 'Tool Diversity Score', data: [5,8,12,20,35,60,85], borderColor: COLORS[5], backgroundColor: COLORS[5] + '15', fill: true, tension: .4, pointBackgroundColor: COLORS[5], pointRadius: 4 },
       ],
-    }, CO)
+    }, { ...CO, scales: { x: { ticks: { color: '#9d8b6e' }, grid: { color: 'rgba(255,248,235,.04)' } }, y: { min: 0, max: 100, ticks: { color: '#9d8b6e' }, grid: { color: 'rgba(255,248,235,.04)' } } } })
   }, 100)
 }
 

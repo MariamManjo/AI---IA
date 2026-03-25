@@ -54,14 +54,34 @@ export function L1() {
         </div>
         <div class="nn-label">Input</div>
       </div>
-      <svg width="60" height="90" style="margin:0 4px;flex-shrink:0"><line x1="0" y1="15" x2="60" y2="8" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="15" x2="60" y2="30" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="15" x2="60" y2="52" stroke="#f59e0b20" stroke-width="1.2"/><line x1="0" y1="45" x2="60" y2="8" stroke="#f59e0b20" stroke-width="1.2"/><line x1="0" y1="45" x2="60" y2="30" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="45" x2="60" y2="52" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="75" x2="60" y2="30" stroke="#f59e0b20" stroke-width="1.2"/><line x1="0" y1="75" x2="60" y2="52" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="75" x2="60" y2="74" stroke="#f59e0b20" stroke-width="1.2"/></svg>
+      <svg width="60" height="90" style="margin:0 4px;flex-shrink:0">
+        <line x1="0" y1="15" x2="60" y2="8" stroke="#f59e0b25" stroke-width="1.2"/>
+        <line x1="0" y1="15" x2="60" y2="30" stroke="#f59e0b25" stroke-width="1.2"/>
+        <line x1="0" y1="45" x2="60" y2="30" stroke="#f59e0b25" stroke-width="1.2"/>
+        <line x1="0" y1="45" x2="60" y2="52" stroke="#f59e0b25" stroke-width="1.2"/>
+        <line x1="0" y1="75" x2="60" y2="52" stroke="#f59e0b25" stroke-width="1.2"/>
+        <line x1="0" y1="75" x2="60" y2="74" stroke="#f59e0b25" stroke-width="1.2"/>
+        <line class="nn-signal-line" x1="0" y1="15" x2="60" y2="30" stroke="#f59e0b" stroke-width="2" style="animation-delay:0s"/>
+        <line class="nn-signal-line" x1="0" y1="45" x2="60" y2="8" stroke="#fbbf24" stroke-width="2" style="animation-delay:.4s"/>
+        <line class="nn-signal-line" x1="0" y1="75" x2="60" y2="52" stroke="#f97316" stroke-width="2" style="animation-delay:.8s"/>
+      </svg>
       <div style="display:flex;flex-direction:column;align-items:center">
         <div class="nn-col h">
           <div class="nn-node"></div><div class="nn-node"></div><div class="nn-node"></div><div class="nn-node"></div>
         </div>
         <div class="nn-label">Hidden</div>
       </div>
-      <svg width="40" height="90" style="margin:0 4px;flex-shrink:0"><line x1="0" y1="8" x2="40" y2="30" stroke="#a78bfa30" stroke-width="1.2"/><line x1="0" y1="8" x2="40" y2="60" stroke="#a78bfa20" stroke-width="1.2"/><line x1="0" y1="30" x2="40" y2="30" stroke="#a78bfa30" stroke-width="1.2"/><line x1="0" y1="30" x2="40" y2="60" stroke="#a78bfa30" stroke-width="1.2"/><line x1="0" y1="52" x2="40" y2="30" stroke="#a78bfa20" stroke-width="1.2"/><line x1="0" y1="52" x2="40" y2="60" stroke="#a78bfa30" stroke-width="1.2"/><line x1="0" y1="74" x2="40" y2="30" stroke="#a78bfa20" stroke-width="1.2"/><line x1="0" y1="74" x2="40" y2="60" stroke="#a78bfa20" stroke-width="1.2"/></svg>
+      <svg width="40" height="90" style="margin:0 4px;flex-shrink:0">
+        <line x1="0" y1="8" x2="40" y2="30" stroke="#a78bfa25" stroke-width="1.2"/>
+        <line x1="0" y1="30" x2="40" y2="30" stroke="#a78bfa25" stroke-width="1.2"/>
+        <line x1="0" y1="30" x2="40" y2="60" stroke="#a78bfa25" stroke-width="1.2"/>
+        <line x1="0" y1="52" x2="40" y2="60" stroke="#a78bfa25" stroke-width="1.2"/>
+        <line x1="0" y1="74" x2="40" y2="30" stroke="#a78bfa25" stroke-width="1.2"/>
+        <line x1="0" y1="74" x2="40" y2="60" stroke="#a78bfa25" stroke-width="1.2"/>
+        <line class="nn-signal-line" x1="0" y1="8" x2="40" y2="30" stroke="#a78bfa" stroke-width="2" style="animation-delay:.3s"/>
+        <line class="nn-signal-line" x1="0" y1="52" x2="40" y2="60" stroke="#c4b5fd" stroke-width="2" style="animation-delay:.9s"/>
+        <line class="nn-signal-line" x1="0" y1="74" x2="40" y2="30" stroke="#818cf8" stroke-width="2" style="animation-delay:1.4s"/>
+      </svg>
       <div style="display:flex;flex-direction:column;align-items:center">
         <div class="nn-col o">
           <div class="nn-node"></div><div class="nn-node"></div>
@@ -322,7 +342,15 @@ export function L5() {
 </div>
 <div class="platform-grid" style="margin-bottom:20px">
   <div class="platform-card">
-    <div class="platform-img"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=500&q=80&fit=crop&h=100" alt="Perplexity" loading="lazy" onerror="this.parentElement.style.background='rgba(245,158,11,.08)';this.style.display='none'"></div>
+    <div class="platform-img" style="padding:0">
+      <div class="plat-anim pla-search">
+        <div class="pla-ring r1"></div><div class="pla-ring r2"></div><div class="pla-ring r3"></div>
+        <div class="pla-icon">🔍</div>
+        <div class="pla-tag" style="top:18%;left:10%;animation-delay:0s">web</div>
+        <div class="pla-tag" style="top:60%;right:10%;animation-delay:.8s">cite</div>
+        <div class="pla-tag" style="top:25%;right:15%;animation-delay:1.4s">src</div>
+      </div>
+    </div>
     <div class="platform-body">
       <div class="platform-tag">Answer Engine · $14B Valuation</div>
       <div class="platform-name">Perplexity AI</div>
@@ -330,7 +358,13 @@ export function L5() {
     </div>
   </div>
   <div class="platform-card">
-    <div class="platform-img"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=70&fit=crop&h=100" alt="NotebookLM" loading="lazy" onerror="this.parentElement.style.background='rgba(245,158,11,.08)';this.style.display='none'"></div>
+    <div class="platform-img" style="padding:0">
+      <div class="plat-anim pla-docs">
+        <div class="nb-page p1">📄</div><div class="nb-page p2">📄</div><div class="nb-page p3">📄</div>
+        <div class="nb-spark">🤖</div>
+        <div style="position:absolute;font-size:20px;top:50%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 0 8px #34d399)">✨</div>
+      </div>
+    </div>
     <div class="platform-body">
       <div class="platform-tag">Google · Document-Grounded AI</div>
       <div class="platform-name">NotebookLM</div>
@@ -338,7 +372,12 @@ export function L5() {
     </div>
   </div>
   <div class="platform-card">
-    <div class="platform-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80&fit=crop&h=100" alt="Microsoft Copilot" loading="lazy" onerror="this.parentElement.style.background='rgba(245,158,11,.08)';this.style.display='none'"></div>
+    <div class="platform-img" style="padding:0">
+      <div class="plat-anim pla-grid">
+        ${[['15%','20%',0],['15%','80%',.3],['85%','20%',.6],['85%','80%',.9],['50%','10%',1.2],['50%','90%',1.5]].map(([t,l,d])=>`<div class="cp-node" style="top:${t};left:${l};animation-delay:${d}s"></div>`).join('')}
+        <div class="cp-center">🏢</div>
+      </div>
+    </div>
     <div class="platform-body">
       <div class="platform-tag">Microsoft · Enterprise</div>
       <div class="platform-name">Microsoft Copilot</div>
@@ -346,7 +385,16 @@ export function L5() {
     </div>
   </div>
   <div class="platform-card">
-    <div class="platform-img"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&q=80&fit=crop&h=100" alt="You.com" loading="lazy" onerror="this.parentElement.style.background='rgba(245,158,11,.08)';this.style.display='none'"></div>
+    <div class="platform-img" style="padding:0">
+      <div class="plat-anim pla-term">
+        <div class="yc-terminal">
+          <div class="yc-line" style="animation-delay:.1s;color:#34d399">$ rag_search("AI 2025")</div>
+          <div class="yc-line" style="animation-delay:.5s;color:#9d8b6e">↳ 847 sources found</div>
+          <div class="yc-line" style="animation-delay:.9s;color:#60a5fa">→ citations: [1][2][3]</div>
+          <div class="yc-line" style="animation-delay:1.3s"><span class="yc-cursor"></span></div>
+        </div>
+      </div>
+    </div>
     <div class="platform-body">
       <div class="platform-tag">Search · Developer API</div>
       <div class="platform-name">You.com</div>
@@ -507,24 +555,38 @@ export function L8() {
 </div>
 <div class="g2">
 <div class="c">
-  <div class="c-label">Function Calling JSON</div>
-  <div class="code"><span class="cm">// Tool definition:</span>
-{ <span class="str">"name"</span>: <span class="str">"get_weather"</span>,
-  <span class="str">"parameters"</span>: {
-    <span class="str">"city"</span>: { <span class="str">"type"</span>: <span class="str">"string"</span> }
-  }
-}
-
-<span class="cm">// Model output (user asks "Weather in Tbilisi?"):</span>
-{ <span class="str">"type"</span>: <span class="str">"tool_use"</span>,
-  <span class="str">"name"</span>: <span class="str">"get_weather"</span>,
-  <span class="str">"input"</span>: { <span class="str">"city"</span>: <span class="str">"Tbilisi"</span> }
-}
-
-<span class="cm">// Tool result returned to model:</span>
-{ <span class="str">"temp"</span>: <span class="num">18</span>, <span class="str">"condition"</span>: <span class="str">"Partly cloudy"</span> }
-
-<span class="cm">// Final answer: "18°C, partly cloudy in Tbilisi."</span></div>
+  <div class="c-label">Tool Call Lifecycle — Step by Step</div>
+  <div class="tool-flow">
+    <div class="tf-step">
+      <div class="tf-num">1</div><div class="tf-icon">👤</div>
+      <div><div class="tf-label">User sends message</div><div class="tf-val">"What's the weather in Tbilisi?"</div></div>
+    </div>
+    <div class="tf-arr">↓</div>
+    <div class="tf-step">
+      <div class="tf-num">2</div><div class="tf-icon">🧠</div>
+      <div><div class="tf-label">Model reasons</div><div class="tf-val tf-blue">Needs live data → call <code>get_weather</code></div></div>
+    </div>
+    <div class="tf-arr">↓</div>
+    <div class="tf-step">
+      <div class="tf-num">3</div><div class="tf-icon">📤</div>
+      <div><div class="tf-label">Tool call emitted</div><div class="tf-val" style="font-size:10px">{ <span style="color:var(--amber)">"name"</span>: <span style="color:var(--green)">"get_weather"</span>, <span style="color:var(--amber)">"city"</span>: <span style="color:var(--green)">"Tbilisi"</span> }</div></div>
+    </div>
+    <div class="tf-arr">↓</div>
+    <div class="tf-step">
+      <div class="tf-num">4</div><div class="tf-icon">⚙️</div>
+      <div><div class="tf-label">External tool executes</div><div class="tf-val tf-purple">API responds: temp=18°C, "Partly cloudy"</div></div>
+    </div>
+    <div class="tf-arr">↓</div>
+    <div class="tf-step">
+      <div class="tf-num">5</div><div class="tf-icon">✅</div>
+      <div><div class="tf-label tf-ok">Final answer to user</div><div class="tf-val">"It's 18°C and partly cloudy in Tbilisi."</div></div>
+    </div>
+  </div>
+  <div class="code" style="margin-top:14px;font-size:10px"><span class="cm">// Step 3 raw JSON:</span>
+{ <span class="str">"type"</span>: <span class="str">"tool_use"</span>, <span class="str">"name"</span>: <span class="str">"get_weather"</span>,
+  <span class="str">"input"</span>: { <span class="str">"city"</span>: <span class="str">"Tbilisi"</span> } }
+<span class="cm">// Step 4 result returned:</span>
+{ <span class="str">"temp"</span>: <span class="num">18</span>, <span class="str">"condition"</span>: <span class="str">"Partly cloudy"</span> }</div>
 </div>
 <div style="display:flex;flex-direction:column;gap:16px">
   <div class="c">
@@ -620,9 +682,21 @@ export function L10() {
     <div class="vis-photo-tag">OWASP LLM Top 10</div>
     <div class="vis-photo-cap">AI security threats — production systems face real attacks</div>
   </div>
-  <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=500&q=80&fit=crop&h=200" alt="WhatsApp Bot" loading="lazy" onerror="this.parentElement.style.display='none'">
-    <div class="vis-photo-tag">2B+ Users</div>
+  <div class="vis-photo chat-vis" style="flex-direction:column;justify-content:flex-start;gap:0;padding:0">
+    <div class="cv-inner">
+      <div class="cv-header">
+        <div class="cv-avatar">🤖</div>
+        <div><div class="cv-hname">AI Assistant</div><div class="cv-online">● online · powered by LLM</div></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div class="cv-msg user" style="animation-delay:.2s">Track my order #12345</div>
+        <div class="cv-msg bot" style="animation-delay:.6s">📦 Your order shipped! Estimated delivery: Wednesday.</div>
+        <div class="cv-msg user" style="animation-delay:1s">Can I change the delivery address?</div>
+        <div class="cv-msg bot" style="animation-delay:1.4s">✅ Address updated! Confirmation sent to your email.</div>
+        <div class="cv-msg bot cv-typing" style="animation-delay:1.8s"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+    <div class="vis-photo-tag" style="position:absolute;top:10px;left:10px">2B+ Users</div>
     <div class="vis-photo-cap">WhatsApp chatbot deployment — webhook + LLM + Business API</div>
   </div>
   <div class="vis-photo">
