@@ -34,61 +34,21 @@ export function L1() {
     <div class="kpi"><div class="kpi-n">$320B</div><div class="kpi-l">AI invest 2025</div></div>
   </div>
 </div>
-<div class="vis-band" style="margin-bottom:20px">
-  <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop&h=200" alt="AI Neural Network" loading="lazy" onerror="this.parentElement.style.display='none'">
-    <div class="vis-photo-tag">AI Today</div>
-    <div class="vis-photo-cap">Modern AI — billions of parameters, human-level capabilities</div>
+<div class="vis-band vb3" style="margin-bottom:20px">
+  <div class="vis-ani" style="background:linear-gradient(135deg,#050c1a,#0a1028);min-height:190px;position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border)">
+    <canvas id="ai-particles-canvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+    <div style="position:absolute;top:10px;left:10px;font-size:8px;font-weight:800;letter-spacing:2px;color:rgba(96,165,250,.9);text-transform:uppercase;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.3);padding:3px 8px;border-radius:6px">AI TODAY · 400M USERS</div>
   </div>
-  <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=400&q=90&fit=crop&h=200" alt="Chess Deep Blue" loading="lazy" onerror="this.parentElement.style.display='none'">
-    <div class="vis-photo-tag">1997</div>
-    <div class="vis-photo-cap">Deep Blue defeats world chess champion Kasparov</div>
-  </div>
-  <div class="c" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px">
-    <div style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">Neural Network — Live</div>
-    <div class="nnet">
-      <div style="display:flex;flex-direction:column;align-items:center">
-        <div class="nn-col">
-          <div class="nn-node"></div><div class="nn-node"></div><div class="nn-node"></div>
-        </div>
-        <div class="nn-label">Input</div>
-      </div>
-      <svg width="60" height="90" style="margin:0 4px;flex-shrink:0">
-        <line x1="0" y1="15" x2="60" y2="8" stroke="#f59e0b25" stroke-width="1.2"/>
-        <line x1="0" y1="15" x2="60" y2="30" stroke="#f59e0b25" stroke-width="1.2"/>
-        <line x1="0" y1="45" x2="60" y2="30" stroke="#f59e0b25" stroke-width="1.2"/>
-        <line x1="0" y1="45" x2="60" y2="52" stroke="#f59e0b25" stroke-width="1.2"/>
-        <line x1="0" y1="75" x2="60" y2="52" stroke="#f59e0b25" stroke-width="1.2"/>
-        <line x1="0" y1="75" x2="60" y2="74" stroke="#f59e0b25" stroke-width="1.2"/>
-        <line class="nn-signal-line" x1="0" y1="15" x2="60" y2="30" stroke="#f59e0b" stroke-width="2" style="animation-delay:0s"/>
-        <line class="nn-signal-line" x1="0" y1="45" x2="60" y2="8" stroke="#fbbf24" stroke-width="2" style="animation-delay:.4s"/>
-        <line class="nn-signal-line" x1="0" y1="75" x2="60" y2="52" stroke="#f97316" stroke-width="2" style="animation-delay:.8s"/>
-      </svg>
-      <div style="display:flex;flex-direction:column;align-items:center">
-        <div class="nn-col h">
-          <div class="nn-node"></div><div class="nn-node"></div><div class="nn-node"></div><div class="nn-node"></div>
-        </div>
-        <div class="nn-label">Hidden</div>
-      </div>
-      <svg width="40" height="90" style="margin:0 4px;flex-shrink:0">
-        <line x1="0" y1="8" x2="40" y2="30" stroke="#a78bfa25" stroke-width="1.2"/>
-        <line x1="0" y1="30" x2="40" y2="30" stroke="#a78bfa25" stroke-width="1.2"/>
-        <line x1="0" y1="30" x2="40" y2="60" stroke="#a78bfa25" stroke-width="1.2"/>
-        <line x1="0" y1="52" x2="40" y2="60" stroke="#a78bfa25" stroke-width="1.2"/>
-        <line x1="0" y1="74" x2="40" y2="30" stroke="#a78bfa25" stroke-width="1.2"/>
-        <line x1="0" y1="74" x2="40" y2="60" stroke="#a78bfa25" stroke-width="1.2"/>
-        <line class="nn-signal-line" x1="0" y1="8" x2="40" y2="30" stroke="#a78bfa" stroke-width="2" style="animation-delay:.3s"/>
-        <line class="nn-signal-line" x1="0" y1="52" x2="40" y2="60" stroke="#c4b5fd" stroke-width="2" style="animation-delay:.9s"/>
-        <line class="nn-signal-line" x1="0" y1="74" x2="40" y2="30" stroke="#818cf8" stroke-width="2" style="animation-delay:1.4s"/>
-      </svg>
-      <div style="display:flex;flex-direction:column;align-items:center">
-        <div class="nn-col o">
-          <div class="nn-node"></div><div class="nn-node"></div>
-        </div>
-        <div class="nn-label">Output</div>
-      </div>
+  <div class="vis-ani chess-vis-box" style="min-height:190px;position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border);background:#0e0905">
+    <div class="chess-board-grid">
+      ${Array.from({length:64},(_,i)=>{const r=Math.floor(i/8),c=i%8,light=(r+c)%2===0;const pieces={0:'♜',1:'♞',5:'♝',6:'♛',7:'♚',8:'♟',9:'♟',10:'♟',48:'♙',49:'♙',54:'♙',56:'♖',57:'♘',61:'♗',62:'♕',63:'♔'};return `<div class="chess-sq ${light?'cs-l':'cs-d'}" style="animation-delay:${(i%7)*.15}s">${pieces[i]||''}</div>`}).join('')}
     </div>
+    <div style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.75);padding:4px 8px;border-radius:6px;font-size:8px;color:var(--green);font-family:monospace;letter-spacing:.5px;animation:chessThink 1s ease-in-out infinite;line-height:1.6">DEEP BLUE<br>COMPUTING...</div>
+    <div style="position:absolute;bottom:8px;left:8px;font-size:8px;font-weight:800;letter-spacing:2px;color:rgba(245,158,11,.8);text-transform:uppercase;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 8px;border-radius:6px">1997 · IBM CHESS</div>
+  </div>
+  <div class="vis-ani" style="min-height:190px;background:#060503;position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border);display:flex;flex-direction:column;align-items:center">
+    <div style="font-size:8px;font-weight:800;letter-spacing:2px;color:rgba(245,158,11,.8);text-transform:uppercase;padding:10px 0 0;z-index:2">NEURAL NETWORK — LIVE</div>
+    <canvas id="nn-live" style="position:absolute;top:28px;left:0;right:0;bottom:0;width:100%;height:calc(100% - 28px)"></canvas>
   </div>
 </div>
 <div class="g2">
@@ -343,12 +303,11 @@ export function L5() {
 <div class="platform-grid" style="margin-bottom:20px">
   <div class="platform-card">
     <div class="platform-img" style="padding:0">
-      <div class="plat-anim pla-search">
-        <div class="pla-ring r1"></div><div class="pla-ring r2"></div><div class="pla-ring r3"></div>
-        <div class="pla-icon">🔍</div>
-        <div class="pla-tag" style="top:18%;left:10%;animation-delay:0s">web</div>
-        <div class="pla-tag" style="top:60%;right:10%;animation-delay:.8s">cite</div>
-        <div class="pla-tag" style="top:25%;right:15%;animation-delay:1.4s">src</div>
+      <div class="plat-anim" style="background:#060c1c;flex-direction:column;align-items:stretch;padding:10px 12px;gap:4px">
+        <div style="display:flex;align-items:center;gap:6px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);border-radius:7px;padding:5px 8px;font-size:9px;font-family:monospace;color:#60a5fa">⚡ <span>What is RAG architecture?</span><span style="animation:termBlink 1s infinite;margin-left:2px">|</span></div>
+        <div class="pp-r" style="animation-delay:.4s;display:flex;gap:5px;align-items:flex-start;animation:ppResultIn .4s .4s both"><span style="background:rgba(96,165,250,.2);color:#60a5fa;font-size:8px;font-weight:700;padding:1px 5px;border-radius:4px;flex-shrink:0">[1]</span><span style="color:#c4b5fd;font-size:9px">RAG combines document retrieval + LLM generation...</span></div>
+        <div style="display:flex;gap:5px;align-items:flex-start;animation:ppResultIn .4s .9s both"><span style="background:rgba(96,165,250,.2);color:#60a5fa;font-size:8px;font-weight:700;padding:1px 5px;border-radius:4px;flex-shrink:0">[2]</span><span style="color:#c4b5fd;font-size:9px">Sources: arxiv.org · huggingface.co · openai.com</span></div>
+        <div style="display:flex;gap:5px;animation:ppResultIn .4s 1.4s both;align-items:center"><span style="font-size:8px;color:#34d399;font-weight:700">✓ Cited</span><span style="font-size:8px;color:#9d8b6e;margin-left:4px">3 sources · 0.8s response</span></div>
       </div>
     </div>
     <div class="platform-body">
@@ -359,10 +318,12 @@ export function L5() {
   </div>
   <div class="platform-card">
     <div class="platform-img" style="padding:0">
-      <div class="plat-anim pla-docs">
-        <div class="nb-page p1">📄</div><div class="nb-page p2">📄</div><div class="nb-page p3">📄</div>
-        <div class="nb-spark">🤖</div>
-        <div style="position:absolute;font-size:20px;top:50%;left:50%;transform:translate(-50%,-50%);filter:drop-shadow(0 0 8px #34d399)">✨</div>
+      <div class="plat-anim" style="background:#051510;flex-direction:column;align-items:stretch;padding:10px 12px;gap:4px">
+        <div style="background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);border-radius:6px;padding:4px 8px;font-size:9px;color:#34d399;font-family:monospace">📄 AI_Research_2025.pdf — 147 pages</div>
+        <div style="font-size:9px;color:#60a5fa">❓ What are the main findings?</div>
+        <div style="height:2px;background:rgba(52,211,153,.1);border-radius:1px;overflow:hidden;margin:2px 0"><div style="height:100%;background:linear-gradient(90deg,transparent,#34d399,transparent);width:100%;animation:nlmScan 1.8s ease-in-out infinite"></div></div>
+        <div style="animation:ppResultIn .4s 1.2s both;font-size:9px;color:var(--text)">📌 Model achieves 94.2% accuracy on benchmarks</div>
+        <div style="animation:ppResultIn .4s 1.7s both;font-size:9px;color:#34d39988">⚠️ Grounded to doc — zero hallucination</div>
       </div>
     </div>
     <div class="platform-body">
@@ -373,9 +334,13 @@ export function L5() {
   </div>
   <div class="platform-card">
     <div class="platform-img" style="padding:0">
-      <div class="plat-anim pla-grid">
-        ${[['15%','20%',0],['15%','80%',.3],['85%','20%',.6],['85%','80%',.9],['50%','10%',1.2],['50%','90%',1.5]].map(([t,l,d])=>`<div class="cp-node" style="top:${t};left:${l};animation-delay:${d}s"></div>`).join('')}
-        <div class="cp-center">🏢</div>
+      <div class="plat-anim" style="background:#0a1428;position:relative;overflow:hidden;min-height:90px">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:rgba(96,165,250,.15);border:2px solid rgba(96,165,250,.4);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 0 20px rgba(96,165,250,.3);z-index:2;animation:pulseGlow 2s infinite">💼</div>
+        <div style="position:absolute;top:12%;left:12%;width:28px;height:28px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;animation:gridPulse 2s 0s infinite">📧</div>
+        <div style="position:absolute;top:12%;right:12%;width:28px;height:28px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;animation:gridPulse 2s .4s infinite">👥</div>
+        <div style="position:absolute;bottom:12%;left:12%;width:28px;height:28px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;animation:gridPulse 2s .8s infinite">📁</div>
+        <div style="position:absolute;bottom:12%;right:12%;width:28px;height:28px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;animation:gridPulse 2s 1.2s infinite">📊</div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"><line x1="50%" y1="50%" x2="20%" y2="20%" stroke="rgba(96,165,250,.25)" stroke-width="1.2" stroke-dasharray="3 3" style="animation:flow-pulse 1.4s infinite"/><line x1="50%" y1="50%" x2="80%" y2="20%" stroke="rgba(96,165,250,.25)" stroke-width="1.2" stroke-dasharray="3 3" style="animation:flow-pulse 1.4s .3s infinite"/><line x1="50%" y1="50%" x2="20%" y2="80%" stroke="rgba(96,165,250,.25)" stroke-width="1.2" stroke-dasharray="3 3" style="animation:flow-pulse 1.4s .6s infinite"/><line x1="50%" y1="50%" x2="80%" y2="80%" stroke="rgba(96,165,250,.25)" stroke-width="1.2" stroke-dasharray="3 3" style="animation:flow-pulse 1.4s .9s infinite"/></svg>
       </div>
     </div>
     <div class="platform-body">
@@ -386,12 +351,13 @@ export function L5() {
   </div>
   <div class="platform-card">
     <div class="platform-img" style="padding:0">
-      <div class="plat-anim pla-term">
-        <div class="yc-terminal">
-          <div class="yc-line" style="animation-delay:.1s;color:#34d399">$ rag_search("AI 2025")</div>
-          <div class="yc-line" style="animation-delay:.5s;color:#9d8b6e">↳ 847 sources found</div>
-          <div class="yc-line" style="animation-delay:.9s;color:#60a5fa">→ citations: [1][2][3]</div>
-          <div class="yc-line" style="animation-delay:1.3s"><span class="yc-cursor"></span></div>
+      <div class="plat-anim pla-term" style="align-items:flex-start">
+        <div class="yc-terminal" style="width:100%">
+          <div class="yc-line" style="animation-delay:.1s;color:#60a5fa">$ search(q="AI agents 2025", models=2)</div>
+          <div class="yc-line" style="animation-delay:.7s;color:#34d399">✓ 2 models · 1.2M results · 0.3s</div>
+          <div class="yc-line" style="animation-delay:1.2s;color:#9d8b6e">[1] "Agentic AI is the frontier..."</div>
+          <div class="yc-line" style="animation-delay:1.7s;color:#9d8b6e">[2] "Multi-agent in production..."</div>
+          <div class="yc-line" style="animation-delay:2.1s"><span class="yc-cursor"></span></div>
         </div>
       </div>
     </div>
@@ -487,15 +453,13 @@ export function L7() {
   </div>
 </div>
 <div class="vis-band" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:20px">
-  <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=70&fit=crop&h=200" alt="Brain Memory" loading="lazy" onerror="this.parentElement.style.display='none'">
-    <div class="vis-photo-tag">Biological Memory</div>
-    <div class="vis-photo-cap">How brains store information — inspiration for AI memory systems</div>
+  <div class="vis-ani" style="min-height:190px;background:linear-gradient(135deg,#1a0a1e,#0f0a1a);position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border)">
+    <canvas id="neuron-canvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+    <div style="position:absolute;top:8px;left:8px;font-size:8px;font-weight:800;letter-spacing:1.5px;color:rgba(167,139,250,.9);text-transform:uppercase;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.25);padding:3px 8px;border-radius:6px">BIOLOGICAL MEMORY</div>
   </div>
-  <div class="vis-photo">
-    <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=500&q=70&fit=crop&h=200" alt="Vector Database" loading="lazy" onerror="this.parentElement.style.display='none'">
-    <div class="vis-photo-tag">Vector Database</div>
-    <div class="vis-photo-cap">High-dimensional embedding space — similar concepts cluster together</div>
+  <div class="vis-ani" style="min-height:190px;background:#050d18;position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--border)">
+    <canvas id="vector-canvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+    <div style="position:absolute;top:8px;left:8px;font-size:8px;font-weight:800;letter-spacing:1.5px;color:rgba(96,165,250,.9);text-transform:uppercase;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.25);padding:3px 8px;border-radius:6px">VECTOR SPACE</div>
   </div>
   <div class="c" style="display:flex;flex-direction:column;justify-content:center;gap:8px;padding:18px">
     <div style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px">Embedding Similarity</div>
@@ -680,7 +644,6 @@ export function L10() {
   <div class="vis-photo">
     <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&q=70&fit=crop&h=200" alt="Security" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">OWASP LLM Top 10</div>
-    <div class="vis-photo-cap">AI security threats — production systems face real attacks</div>
   </div>
   <div class="vis-photo chat-vis" style="flex-direction:column;justify-content:flex-start;gap:0;padding:0">
     <div class="cv-inner">
@@ -702,7 +665,6 @@ export function L10() {
   <div class="vis-photo">
     <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=70&fit=crop&h=200" alt="Data Center" loading="lazy" onerror="this.parentElement.style.display='none'">
     <div class="vis-photo-tag">Production Scale</div>
-    <div class="vis-photo-cap">Enterprise AI infrastructure — cost, scale, and reliability</div>
   </div>
 </div>
 <div class="g3">

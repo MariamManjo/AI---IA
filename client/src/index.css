@@ -450,3 +450,12 @@ body::after{content:'';position:fixed;bottom:-100px;right:-100px;width:600px;hei
 .nn-signal-line{stroke-dasharray:8 80;animation:nnSignal 1.8s linear infinite}
 .nn-node{animation:nodePulse 2s ease-in-out infinite}
 
+/* ── ANIMATED VISUALS EXTRA ─────────────────── */
+@keyframes chessThink{0%,100%{opacity:.5;text-shadow:0 0 4px var(--green)}50%{opacity:1;text-shadow:0 0 10px var(--green)}}
+@keyframes ppResultIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+@keyframes nlmScan{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.vb3{grid-template-columns:1fr 1fr 1fr !important}
+.chess-board-grid{display:grid;grid-template-columns:repeat(8,1fr);height:150px;position:absolute;inset:0}
+.chess-sq{display:flex;align-items:center;justify-content:center;font-size:13px}
+.cs-l{background:rgba(245,158,11,.14)}.cs-d{background:rgba(245,158,11,.04)}
+
