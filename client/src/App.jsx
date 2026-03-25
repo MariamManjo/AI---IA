@@ -7,18 +7,19 @@ import { CHARTFNS } from './levels/charts.js'
 import { QUIZZES } from './data/quizzes.js'
 import { loadState, saveState, syncToServer } from './store/gameState.js'
 
-// Quiz state (per session, separate from persistent GS)
-const QS = {}
-function initQ(id) {
-  if (!QS[id]) QS[id] = { a: {}, score: 0, done: false }
-}
-
 export default function App() {
+  // Quiz state lives in a ref so it persists across renders but resets on retry
+  const QS = useRef({})
   const [gs, setGs] = useState(loadState)
   const [curLevel, setCurLevel] = useState(1)
+  const [levelKey, setLevelKey] = useState(0) // bumped on retry to force re-render
   const [toast, setToast] = useState('')
   const toastKey = useRef(0)
   const contentRef = useRef(null)
+
+  function initQ(id) {
+    if (!QS.current[id]) QS.current[id] = { a: {}, score: 0, done: false }
+  }
 
   const showToast = useCallback((msg) => {
     toastKey.current++
@@ -73,31 +74,105 @@ export default function App() {
     }
   }, [])
 
-  // Quiz click handler via event delegation
+  // Re-apply quiz DOM state after a re-render (navigation back, retry reset)
+  function restoreQuizState(lvl) {
+    const qs = QS.current[lvl]
+    if (!qs) return
+    Object.entries(qs.a).forEach(([qi, sel]) => {
+      const q = QUIZZES[lvl][parseInt(qi)]
+      if (!q) return
+      document.querySelectorAll(`#q${lvl}_${qi} .opt`).forEach((b, i) => {
+        b.classList.add('disabled')
+        if (i === q.a) b.classList.add('correct')
+        else if (i === parseInt(sel)) b.classList.add('wrong')
+      })
+      const expEl = document.getElementById(`exp${lvl}_${qi}`)
+      if (expEl) expEl.classList.add('show')
+    })
+    if (!qs.done) return
+    const total = QUIZZES[lvl].length
+    const pct = Math.round(qs.score / total * 100)
+    const sc = document.getElementById('qs' + lvl)
+    if (sc) sc.textContent = `Score: ${qs.score}/${total} (${pct}%)`
+    const btn = document.getElementById('qbtn' + lvl)
+    const retryBtn = document.getElementById('qretry' + lvl)
+    if (pct >= 70) {
+      if (btn) {
+        btn.removeAttribute('disabled')
+        btn.textContent = lvl < 10 ? 'Next Level →' : '🌟 Complete!'
+        if (lvl < 10) btn.dataset.nextlvl = lvl + 1
+      }
+    } else {
+      if (btn) btn.textContent = `${pct}% — Need 70%`
+      if (retryBtn) retryBtn.style.display = ''
+    }
+  }
+
+  // Event delegation: opt clicks, retry, next-level
   useEffect(() => {
     const cnt = contentRef.current
     if (!cnt) return
     const handler = (e) => {
-      const btn = e.target.closest('.opt')
-      if (!btn) return
-      const lvl = parseInt(btn.dataset.lvl)
-      const qi = parseInt(btn.dataset.qi)
-      const sel = parseInt(btn.dataset.sel)
-      pickAnswer(lvl, qi, sel)
+      const opt = e.target.closest('.opt')
+      if (opt) {
+        pickAnswer(parseInt(opt.dataset.lvl), parseInt(opt.dataset.qi), parseInt(opt.dataset.sel))
+        return
+      }
+      const retry = e.target.closest('[data-retry]')
+      if (retry) {
+        const lvl = parseInt(retry.dataset.retry)
+        QS.current[lvl] = null
+        setLevelKey(k => k + 1)
+        return
+      }
+      const nextLvl = e.target.closest('[data-nextlvl]')
+      if (nextLvl) {
+        setCurLevel(parseInt(nextLvl.dataset.nextlvl))
+      }
     }
     cnt.addEventListener('click', handler)
     return () => cnt.removeEventListener('click', handler)
   })
 
+  const finishQuiz = useCallback((lvl) => {
+    QS.current[lvl].done = true
+    const s = QS.current[lvl].score, total = QUIZZES[lvl].length, pct = Math.round(s / total * 100)
+    const sc = document.getElementById('qs' + lvl)
+    if (sc) sc.textContent = `Score: ${s}/${total} (${pct}%)`
+    const btn = document.getElementById('qbtn' + lvl)
+    const retryBtn = document.getElementById('qretry' + lvl)
+    if (pct >= 70) {
+      updateGs(prev => {
+        if (prev.done.includes(lvl)) return prev
+        return { ...prev, done: [...prev.done, lvl], xp: prev.xp + 100 }
+      })
+      if (btn) {
+        btn.removeAttribute('disabled')
+        if (lvl < 10) {
+          btn.textContent = 'Next Level →'
+          btn.dataset.nextlvl = lvl + 1
+        } else {
+          btn.textContent = '🌟 Complete!'
+        }
+      }
+      setTimeout(() => showToast(`🏆 Level ${lvl} done! +100 XP 🎉`), 300)
+      if (lvl === 10) setTimeout(() => showToast('🌟 ALL 10 LEVELS COMPLETE! You are an AI expert!'), 500)
+    } else {
+      if (btn) btn.textContent = `${pct}% — Need 70%`
+      if (retryBtn) retryBtn.style.display = ''
+      showToast(`${pct}% — Need 70% to unlock next level`)
+    }
+  }, [updateGs, showToast])
+
   const pickAnswer = useCallback((lvl, qi, sel) => {
     initQ(lvl)
-    if (QS[lvl]?.done || QS[lvl]?.a[qi] !== undefined) return
+    if (QS.current[lvl]?.done || QS.current[lvl]?.a[qi] !== undefined) return
     const q = QUIZZES[lvl][qi]
-    QS[lvl].a[qi] = sel
+    QS.current[lvl].a[qi] = sel
     const ok = sel === q.a
     if (ok) {
       updateGs(prev => ({ ...prev, xp: prev.xp + 10 }))
-      QS[lvl].score++
+      QS.current[lvl].score++
       showToast('✅ +10 XP')
     } else {
       showToast('❌ Wrong — see explanation')
@@ -109,58 +184,41 @@ export default function App() {
     })
     const expEl = document.getElementById(`exp${lvl}_${qi}`)
     if (expEl) expEl.classList.add('show')
-    if (Object.keys(QS[lvl].a).length === QUIZZES[lvl].length) finishQuiz(lvl)
-  }, [updateGs, showToast])
+    if (Object.keys(QS.current[lvl].a).length === QUIZZES[lvl].length) finishQuiz(lvl)
+  }, [updateGs, showToast, finishQuiz])
 
-  const finishQuiz = useCallback((lvl) => {
-    QS[lvl].done = true
-    const s = QS[lvl].score, total = QUIZZES[lvl].length, pct = Math.round(s / total * 100)
-    const sc = document.getElementById('qs' + lvl)
-    if (sc) sc.textContent = `Score: ${s}/${total} (${pct}%)`
-    if (pct >= 70) {
-      updateGs(prev => {
-        if (prev.done.includes(lvl)) return prev
-        const next = { ...prev, done: [...prev.done, lvl], xp: prev.xp + 100 }
-        return next
-      })
-      setTimeout(() => showToast(`🏆 Level ${lvl} done! +100 XP 🎉`), 300)
-      if (lvl < 10) {
-        setTimeout(() => {
-          if (confirm(`Level ${lvl} complete! Go to Level ${lvl + 1}?`)) setCurLevel(lvl + 1)
-        }, 1500)
-      } else {
-        setTimeout(() => showToast('🌟 ALL 10 LEVELS COMPLETE! You are an AI expert!'), 500)
-      }
-    } else {
-      showToast(`${pct}% — Need 70% to unlock next level`)
-    }
-  }, [updateGs, showToast])
-
-  // Render level content
+  // Render level content with fade transition
   useEffect(() => {
     const locked = curLevel > 1 && !gs.done.includes(curLevel - 1)
     const cnt = document.getElementById('cnt')
     if (!cnt) return
-    if (locked) {
-      cnt.innerHTML = `<div class="locked-pg"><div class="lock-icon">🔒</div><h2>Level ${curLevel} Locked</h2><p>Complete Level ${curLevel - 1} with ≥70% to unlock.</p></div>`
-    } else {
-      cnt.innerHTML = BUILDERS[curLevel]()
-      if (CHARTFNS[curLevel]) CHARTFNS[curLevel]()
-      cnt.scrollTo(0, 0)
-      setTimeout(() => {
-        if (curLevel === 1) { const ti = document.getElementById('tok-in'); if (ti) window._tokenize(ti.value) }
-        if (curLevel === 2) window._roiCalc(10000)
-        if (curLevel === 4) window._tempFx(0.7)
-      }, 200)
-    }
-  }, [curLevel, gs.done])
+
+    cnt.style.opacity = '0'
+    const t = setTimeout(() => {
+      if (locked) {
+        cnt.innerHTML = `<div class="locked-pg"><div class="lock-icon">🔒</div><h2>Level ${curLevel} Locked</h2><p>Complete Level ${curLevel - 1} with ≥70% to unlock.</p></div>`
+      } else {
+        cnt.innerHTML = BUILDERS[curLevel]()
+        try { if (CHARTFNS[curLevel]) CHARTFNS[curLevel]() } catch {}
+        cnt.scrollTop = 0
+        restoreQuizState(curLevel)
+        setTimeout(() => {
+          if (curLevel === 1) { const ti = document.getElementById('tok-in'); if (ti) window._tokenize(ti.value) }
+          if (curLevel === 2) window._roiCalc(10000)
+          if (curLevel === 4) window._tempFx(0.7)
+        }, 200)
+      }
+      requestAnimationFrame(() => { cnt.style.opacity = '1' })
+    }, 120)
+    return () => clearTimeout(t)
+  }, [curLevel, gs.done, levelKey])
 
   return (
     <>
       <Sidebar gs={gs} curLevel={curLevel} onSelect={setCurLevel} onToast={showToast} />
       <div id="main">
         <TopBar gs={gs} curLevel={curLevel} />
-        <div id="cnt" ref={contentRef} />
+        <div id="cnt" ref={contentRef} style={{ transition: 'opacity 0.15s ease' }} />
       </div>
       <Toast message={toast} />
     </>

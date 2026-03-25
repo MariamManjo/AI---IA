@@ -13,8 +13,9 @@ function qHTML(lvl) {
     <div class="exp" id="exp${lvl}_${i}">💡 ${q.exp}</div>
   </div>`).join('')}
   <div class="quiz-foot">
-    <button class="btn" disabled>Submitted</button>
-    <span class="q-score" id="qs${lvl}">Answer all questions</span>
+    <button class="btn" id="qbtn${lvl}" disabled>Answer all questions</button>
+    <button class="btn btn-retry" id="qretry${lvl}" data-retry="${lvl}" style="display:none">↩ Try Again</button>
+    <span class="q-score" id="qs${lvl}"></span>
   </div>
 </div>`
 }
