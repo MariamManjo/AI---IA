@@ -34,6 +34,43 @@ export function L1() {
     <div class="kpi"><div class="kpi-n">$185B</div><div class="kpi-l">AI invest 2024</div></div>
   </div>
 </div>
+<div class="vis-band" style="margin-bottom:20px">
+  <div class="vis-photo">
+    <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop&h=200" alt="AI Neural Network" loading="lazy">
+    <div class="vis-photo-tag">AI Today</div>
+    <div class="vis-photo-cap">Modern AI — billions of parameters, human-level capabilities</div>
+  </div>
+  <div class="vis-photo">
+    <img src="https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=400&q=80&fit=crop&h=200" alt="Chess Deep Blue" loading="lazy">
+    <div class="vis-photo-tag">1997</div>
+    <div class="vis-photo-cap">Deep Blue defeats world chess champion Kasparov</div>
+  </div>
+  <div class="c" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px">
+    <div style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">Neural Network — Live</div>
+    <div class="nnet">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="nn-col">
+          <div class="nn-node"></div><div class="nn-node"></div><div class="nn-node"></div>
+        </div>
+        <div class="nn-label">Input</div>
+      </div>
+      <svg width="60" height="90" style="margin:0 4px;flex-shrink:0"><line x1="0" y1="15" x2="60" y2="8" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="15" x2="60" y2="30" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="15" x2="60" y2="52" stroke="#f59e0b20" stroke-width="1.2"/><line x1="0" y1="45" x2="60" y2="8" stroke="#f59e0b20" stroke-width="1.2"/><line x1="0" y1="45" x2="60" y2="30" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="45" x2="60" y2="52" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="75" x2="60" y2="30" stroke="#f59e0b20" stroke-width="1.2"/><line x1="0" y1="75" x2="60" y2="52" stroke="#f59e0b30" stroke-width="1.2"/><line x1="0" y1="75" x2="60" y2="74" stroke="#f59e0b20" stroke-width="1.2"/></svg>
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="nn-col h">
+          <div class="nn-node"></div><div class="nn-node"></div><div class="nn-node"></div><div class="nn-node"></div>
+        </div>
+        <div class="nn-label">Hidden</div>
+      </div>
+      <svg width="40" height="90" style="margin:0 4px;flex-shrink:0"><line x1="0" y1="8" x2="40" y2="30" stroke="#a78bfa30" stroke-width="1.2"/><line x1="0" y1="8" x2="40" y2="60" stroke="#a78bfa20" stroke-width="1.2"/><line x1="0" y1="30" x2="40" y2="30" stroke="#a78bfa30" stroke-width="1.2"/><line x1="0" y1="30" x2="40" y2="60" stroke="#a78bfa30" stroke-width="1.2"/><line x1="0" y1="52" x2="40" y2="30" stroke="#a78bfa20" stroke-width="1.2"/><line x1="0" y1="52" x2="40" y2="60" stroke="#a78bfa30" stroke-width="1.2"/><line x1="0" y1="74" x2="40" y2="30" stroke="#a78bfa20" stroke-width="1.2"/><line x1="0" y1="74" x2="40" y2="60" stroke="#a78bfa20" stroke-width="1.2"/></svg>
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="nn-col o">
+          <div class="nn-node"></div><div class="nn-node"></div>
+        </div>
+        <div class="nn-label">Output</div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="g2">
 <div class="c">
   <div class="c-label">History Timeline</div>
@@ -84,11 +121,21 @@ export function L2() {
 <div class="c"><div class="c-label">Accuracy by Domain</div><div class="ch" style="height:280px"><canvas id="c2a"></canvas></div></div>
 <div class="c">
   <div class="c-label">Business Cases</div>
-  <div style="display:flex;flex-direction:column;gap:12px">
-    ${[['Netflix','Churn Prediction','$1B+ saved/year via retention AI'],['Stripe','Fraud Detection','99%+ accuracy · <100ms per transaction'],['Amazon','Demand Forecasting','30% reduction in stockouts'],['Georgian Banks','AI Credit Scoring','3× faster loan decisions (TBC, BoG)'],['Spotify','Discover Weekly','40M+ listeners personalized weekly']].map(([c,t,s]) => `
-    <div style="display:flex;align-items:center;gap:12px;padding:12px;background:rgba(255,248,235,.03);border-radius:12px;border:1px solid var(--border)">
-      <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0"></div>
-      <div style="flex:1"><div style="font-size:13px;font-weight:700;color:var(--text)">${c} — ${t}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${s}</div></div>
+  <div class="brand-row">
+    ${[
+      ['Netflix','Churn Prediction','$1B+ saved/year via retention AI','$1B+','photo-1574375927938-d5a98e8ffe85'],
+      ['Stripe','Fraud Detection','99%+ accuracy · <100ms per transaction','99%','photo-1563986768609-322da13575f3'],
+      ['Amazon','Demand Forecast','30% reduction in stockouts','−30%','photo-1607082348824-0a96f2a4b9da'],
+      ['Spotify','Discover Weekly','40M+ listeners personalized weekly','40M+','photo-1614680376573-df3480f0c6ff']
+    ].map(([c,t,s,stat,pid]) => `
+    <div class="brand-card">
+      <div class="brand-photo"><img src="https://images.unsplash.com/photo-${pid}?w=120&q=70&fit=crop&h=120" alt="${c}" loading="lazy"></div>
+      <div class="brand-text">
+        <div class="brand-case">${t}</div>
+        <div class="brand-name">${c}</div>
+        <div class="brand-stat">${s}</div>
+      </div>
+      <div class="brand-pill">${stat}</div>
     </div>`).join('')}
   </div>
 </div>
@@ -120,6 +167,24 @@ export function L3() {
 <div class="g3">
   ${[['0️⃣','Zero-shot','No examples given','Relies on model knowledge alone','Core'],['🔢','Few-shot','2-5 examples provided','30-50% accuracy boost','Core'],['⛓️','Chain of Thought','Step-by-step reasoning','+30-70% on math & logic (Wei 2022)','Advanced'],['🌳','Tree of Thoughts','Branch + evaluate paths','70%→100% on logic puzzles (Yao 2023)','Advanced'],['🎭','RTF Framework','Role · Task · Format','Structured prompting for pros','Framework'],['⭐','COSTAR','Context·Objective·Style·Tone·Audience·Response','Singapore Gov. standard','Framework']].map(([ic,t,s,r,tag]) => `
   <div class="fw-card"><div class="fw-icon">${ic}</div><div class="fw-title">${t}</div><span class="fw-tag">${tag}</span><div class="fw-desc">${s}<br><strong style="color:var(--amber)">${r}</strong></div></div>`).join('')}
+</div>
+<div class="chat-compare">
+  <div class="chat-box">
+    <div class="chat-bar"><div class="chat-bar-dot red"></div>Zero-Shot Prompt</div>
+    <div class="chat-msgs">
+      <div class="cb u">What is 25% of 180?</div>
+      <div class="cb a bad">The answer is <strong>25</strong>. ❌</div>
+    </div>
+    <div class="chat-label bad">No reasoning steps → wrong answer</div>
+  </div>
+  <div class="chat-box">
+    <div class="chat-bar"><div class="chat-bar-dot"></div>Chain of Thought Prompt</div>
+    <div class="chat-msgs">
+      <div class="cb u">What is 25% of 180? Think step by step.</div>
+      <div class="cb a good">1. 25% = 25/100 = 0.25<br>2. 0.25 × 180 = <strong>45 ✅</strong></div>
+    </div>
+    <div class="chat-label good">Step-by-step reasoning → correct answer</div>
+  </div>
 </div>
 <div class="g2">
 <div class="c"><div class="c-label">Technique Performance</div><div class="ch"><canvas id="c3a"></canvas></div></div>
@@ -155,13 +220,45 @@ export function L4() {
     <div class="kpi"><div class="kpi-n">RAG</div><div class="kpi-l">Best fix method</div></div>
   </div>
 </div>
-<div class="g3">
-  ${[['⚖️','Mata v. Avianca (2023)','ChatGPT invented 6 case citations. Lawyers fined $5,000 + sanctioned.','var(--coral)'],['🏥','Medical Hallucinations','GPT-3.5 hallucinated drug dosages in 30%+ of medical queries.','var(--orange)'],['✈️','Air Canada Bot (2024)','AI invented a refund policy. Customer won in court. Policy enforced.','var(--amber)']].map(([ic,t,d,c]) => `
-  <div class="c" style="border-color:${c}44">
-    <div style="font-size:32px;margin-bottom:12px">${ic}</div>
-    <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">${t}</div>
-    <div style="font-size:12px;color:var(--muted)">${d}</div>
-  </div>`).join('')}
+<div class="case-row">
+  <div class="case-card">
+    <div class="case-photo">
+      <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=500&q=70&fit=crop&h=130" alt="Courtroom" loading="lazy">
+      <div class="case-badge badge-high">Real Case</div>
+    </div>
+    <div class="case-body">
+      <div class="case-title">⚖️ Mata v. Avianca (2023)</div>
+      <div class="case-desc">ChatGPT invented 6 fake court citations with real-sounding judge names. Lawyers fined <strong style="color:var(--coral)">$5,000</strong> and sanctioned by federal court.</div>
+    </div>
+  </div>
+  <div class="case-card">
+    <div class="case-photo">
+      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=500&q=70&fit=crop&h=130" alt="Medical" loading="lazy">
+      <div class="case-badge badge-high">Medical Risk</div>
+    </div>
+    <div class="case-body">
+      <div class="case-title">🏥 Medical Hallucinations</div>
+      <div class="case-desc">GPT-3.5 hallucinated drug dosages in <strong style="color:var(--coral)">30%+</strong> of medical queries. Dangerous for clinical use without human verification.</div>
+    </div>
+  </div>
+  <div class="case-card">
+    <div class="case-photo">
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&q=70&fit=crop&h=130" alt="Airplane" loading="lazy">
+      <div class="case-badge badge-med">Legal Ruling</div>
+    </div>
+    <div class="case-body">
+      <div class="case-title">✈️ Air Canada Bot (2024)</div>
+      <div class="case-desc">AI chatbot <strong>invented a bereavement refund policy</strong> that didn't exist. Customer sued. Air Canada lost in court — bot's word was legally binding.</div>
+    </div>
+  </div>
+</div>
+<div class="c g1" style="margin-bottom:20px">
+  <div class="c-label">Hallucination vs Grounded Answer</div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:10px;font-family:'SF Mono','Fira Code',monospace">Prompt: "Cite the legal case where AI chatbot invented a refund policy"</div>
+  <div class="hd-label hd-bad">❌ Without RAG (hallucinating)</div>
+  <div class="hd-text bad">"In Johnson v. TechCorp (2023), the California Supreme Court ruled... [fake case, fake court, fake ruling — all fabricated]"</div>
+  <div class="hd-label hd-good">✅ With RAG (grounded)</div>
+  <div class="hd-text good">"In <em>Moffatt v. Air Canada</em> (2024, BC Civil Resolution Tribunal), the court ruled Air Canada was bound by its chatbot's invented bereavement policy. [Source: CBC News, Feb 16 2024]"</div>
 </div>
 <div class="g2">
 <div class="c">
@@ -223,6 +320,40 @@ export function L5() {
     <div class="p-node green">Cited Answer ✅</div>
   </div>
 </div>
+<div class="platform-grid" style="margin-bottom:20px">
+  <div class="platform-card">
+    <div class="platform-img"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=500&q=70&fit=crop&h=100" alt="Perplexity" loading="lazy"></div>
+    <div class="platform-body">
+      <div class="platform-tag">Answer Engine · $9B Valuation</div>
+      <div class="platform-name">Perplexity AI</div>
+      <div class="platform-desc">Live web search + AI synthesis with source citations. 10M+ daily users. Rivals Google for research tasks.</div>
+    </div>
+  </div>
+  <div class="platform-card">
+    <div class="platform-img"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=70&fit=crop&h=100" alt="NotebookLM" loading="lazy"></div>
+    <div class="platform-body">
+      <div class="platform-tag">Google · Document-Grounded AI</div>
+      <div class="platform-name">NotebookLM</div>
+      <div class="platform-desc">Upload your PDFs → AI answers <em>only</em> from your content. Zero hallucinations within your documents.</div>
+    </div>
+  </div>
+  <div class="platform-card">
+    <div class="platform-img"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=70&fit=crop&h=100" alt="Microsoft Copilot" loading="lazy"></div>
+    <div class="platform-body">
+      <div class="platform-tag">Microsoft · Enterprise</div>
+      <div class="platform-name">Microsoft Copilot</div>
+      <div class="platform-desc">Connects to SharePoint, Teams, emails. 300M enterprise users. RAG over your organization's data.</div>
+    </div>
+  </div>
+  <div class="platform-card">
+    <div class="platform-img"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=500&q=70&fit=crop&h=100" alt="You.com" loading="lazy"></div>
+    <div class="platform-body">
+      <div class="platform-tag">Search · Developer API</div>
+      <div class="platform-name">You.com</div>
+      <div class="platform-desc">Multi-model AI search with citations and a developer-friendly RAG API for building your own tools.</div>
+    </div>
+  </div>
+</div>
 <div class="g2">
 <div class="c"><div class="c-label">RAG vs Fine-tuning vs Base LLM</div><div class="ch"><canvas id="c5a"></canvas></div></div>
 <div class="c">
@@ -277,8 +408,17 @@ export function L6() {
   </table>
   <div style="margin-top:16px">
   <div class="c-label">Real Products (2024–25)</div>
-  ${[['Anthropic','Claude Computer Use','Sees screen · clicks · types autonomously'],['OpenAI','Operator (Jan 2025)','Browses web · fills forms · books things'],['Cognition','Devin','Full AI software engineer · $2B']].map(([co,n,d]) => `
-  <div style="padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start"><div style="width:6px;height:6px;border-radius:50%;background:var(--amber);margin-top:5px;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:var(--text)">${co} — ${n}</div><div style="font-size:11px;color:var(--muted)">${d}</div></div></div>`).join('')}
+  <div style="display:flex;flex-direction:column;gap:8px">
+    ${[
+      ['photo-1485827404703-89b55fcc595e','Anthropic','Claude Computer Use','Sees your screen · clicks · types · operates computer autonomously. Released Oct 2024.'],
+      ['photo-1555066931-4365d14bab8c','OpenAI','Operator (Jan 2025)','Browses web, fills forms, books appointments. First commercial AI agent product.'],
+      ['photo-1498050108023-c5249f4df085','Cognition','Devin AI','Full AI software engineer — reads issues, writes code, deploys. $2B valuation.']
+    ].map(([pid,co,n,d]) => `
+    <div style="display:flex;gap:10px;align-items:center;padding:10px;background:rgba(255,248,235,.03);border:1px solid var(--border);border-radius:12px;transition:border-color .2s" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="width:44px;height:44px;border-radius:10px;overflow:hidden;flex-shrink:0"><img src="https://images.unsplash.com/photo-${pid}?w=80&q=70&fit=crop&h=80" alt="${n}" loading="lazy" style="width:100%;height:100%;object-fit:cover;filter:brightness(.7)"></div>
+      <div><div style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:.8px;text-transform:uppercase">${co}</div><div style="font-size:12px;font-weight:700;color:var(--text)">${n}</div><div style="font-size:11px;color:var(--muted)">${d}</div></div>
+    </div>`).join('')}
+  </div>
   </div>
 </div>
 </div>
@@ -296,6 +436,30 @@ export function L7() {
     <div class="kpi"><div class="kpi-n">200K</div><div class="kpi-l">Claude context window</div></div>
     <div class="kpi"><div class="kpi-n">~ms</div><div class="kpi-l">Vector search latency</div></div>
     <div class="kpi"><div class="kpi-n">∞</div><div class="kpi-l">External memory size</div></div>
+  </div>
+</div>
+<div class="vis-band" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:20px">
+  <div class="vis-photo">
+    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=70&fit=crop&h=200" alt="Brain Memory" loading="lazy">
+    <div class="vis-photo-tag">Biological Memory</div>
+    <div class="vis-photo-cap">How brains store information — inspiration for AI memory systems</div>
+  </div>
+  <div class="vis-photo">
+    <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=500&q=70&fit=crop&h=200" alt="Vector Database" loading="lazy">
+    <div class="vis-photo-tag">Vector Database</div>
+    <div class="vis-photo-cap">High-dimensional embedding space — similar concepts cluster together</div>
+  </div>
+  <div class="c" style="display:flex;flex-direction:column;justify-content:center;gap:8px;padding:18px">
+    <div style="font-size:10px;font-weight:700;color:var(--amber);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px">Embedding Similarity</div>
+    ${[['king','#f59e0b',92],['queen','#f97316',88],['prince','#a78bfa',71],['banana','#9d8b6e',12]].map(([w,c,pct]) => `
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font-size:11px;font-weight:700;color:${c};width:56px">"${w}"</span>
+      <div style="flex:1;height:6px;background:rgba(255,248,235,.07);border-radius:3px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:${c};border-radius:3px;transition:width .8s"></div>
+      </div>
+      <span style="font-size:10px;color:var(--muted);width:32px;text-align:right">${pct}%</span>
+    </div>`).join('')}
+    <div style="font-size:10px;color:var(--dim);margin-top:4px">Similarity to "king" in vector space</div>
   </div>
 </div>
 <div class="g3">
@@ -381,6 +545,17 @@ export function L8() {
   <div class="c"><div class="c-label">Tool Usage Distribution</div><div class="ch" style="height:180px"><canvas id="c8a"></canvas></div></div>
 </div>
 </div>
+<div class="c g1" style="margin-bottom:20px">
+  <div class="c-label">MCP Tool Ecosystem (1000+ connectors)</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px">
+    ${[['🐙','GitHub','Code · PRs · Issues'],['💬','Slack','Messages · Channels'],['🗄️','Databases','SQL · Postgres · Mongo'],['🔍','Web Search','Brave · Google'],['📧','Email','Gmail · Outlook'],['📊','Analytics','Sheets · Looker'],['🗂️','Files','Drive · S3 · Dropbox'],['💳','Payments','Stripe · PayPal']].map(([ic,n,d]) => `
+    <div style="background:rgba(255,248,235,.03);border:1px solid var(--border);border-radius:12px;padding:12px;text-align:center;transition:all .2s;cursor:default" onmouseover="this.style.borderColor='var(--amber)';this.style.background='rgba(245,158,11,.05)'" onmouseout="this.style.borderColor='var(--border)';this.style.background='rgba(255,248,235,.03)'">
+      <div style="font-size:24px;margin-bottom:6px">${ic}</div>
+      <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px">${n}</div>
+      <div style="font-size:10px;color:var(--muted)">${d}</div>
+    </div>`).join('')}
+  </div>
+</div>
 ${qHTML(8)}`
 }
 
@@ -437,6 +612,23 @@ export function L10() {
     <div class="kpi"><div class="kpi-n">90%</div><div class="kpi-l">Cost cut w/ caching</div></div>
     <div class="kpi"><div class="kpi-n">2B+</div><div class="kpi-l">WhatsApp users</div></div>
     <div class="kpi"><div class="kpi-n">$0.003</div><div class="kpi-l">GPT-4o-mini/1K tok</div></div>
+  </div>
+</div>
+<div class="vis-band" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:20px">
+  <div class="vis-photo">
+    <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=500&q=70&fit=crop&h=200" alt="Security" loading="lazy">
+    <div class="vis-photo-tag">OWASP LLM Top 10</div>
+    <div class="vis-photo-cap">AI security threats — production systems face real attacks</div>
+  </div>
+  <div class="vis-photo">
+    <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?w=500&q=70&fit=crop&h=200" alt="WhatsApp Bot" loading="lazy">
+    <div class="vis-photo-tag">2B+ Users</div>
+    <div class="vis-photo-cap">WhatsApp chatbot deployment — webhook + LLM + Business API</div>
+  </div>
+  <div class="vis-photo">
+    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=70&fit=crop&h=200" alt="Data Center" loading="lazy">
+    <div class="vis-photo-tag">Production Scale</div>
+    <div class="vis-photo-cap">Enterprise AI infrastructure — cost, scale, and reliability</div>
   </div>
 </div>
 <div class="g3">

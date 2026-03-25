@@ -241,3 +241,116 @@ body::after{content:'';position:fixed;bottom:-100px;right:-100px;width:600px;hei
 #toast{position:fixed;bottom:28px;right:28px;background:rgba(12,10,8,.95);border:1px solid var(--amber);color:var(--amber);padding:12px 20px;border-radius:14px;font-size:13px;font-weight:700;z-index:999;transform:translateY(80px);transition:transform .3s;pointer-events:none;backdrop-filter:blur(20px)}
 #toast.show{transform:translateY(0)}
 
+/* ── VISUAL MEDIA ─────────────────────────────── */
+.vis-band{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:14px;margin-bottom:20px}
+.vis-photo{border-radius:16px;overflow:hidden;position:relative;min-height:170px;background:#111}
+.vis-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.65) saturate(.85);transition:filter .4s,transform .4s}
+.vis-photo:hover img{filter:brightness(.85) saturate(1.1);transform:scale(1.04)}
+.vis-photo-cap{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(transparent,rgba(12,10,8,.92));font-size:11px;font-weight:700;color:var(--text);letter-spacing:.3px;line-height:1.4}
+.vis-photo-tag{position:absolute;top:10px;left:10px;background:rgba(245,158,11,.9);color:#0c0a08;font-size:9px;font-weight:800;padding:3px 8px;border-radius:6px;letter-spacing:.8px;text-transform:uppercase}
+
+/* ── CASE STUDY PHOTO CARDS ─────────────────── */
+.case-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.case-card{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--card);cursor:default;transition:border-color .25s,transform .25s}
+.case-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.case-photo{height:110px;overflow:hidden;position:relative}
+.case-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.7);transition:filter .4s}
+.case-card:hover .case-photo img{filter:brightness(.7) saturate(.9)}
+.case-badge{position:absolute;top:8px;right:8px;font-size:9px;font-weight:800;padding:3px 8px;border-radius:6px;letter-spacing:.5px;text-transform:uppercase}
+.badge-high{background:rgba(251,113,133,.25);color:var(--coral);border:1px solid rgba(251,113,133,.4)}
+.badge-med{background:rgba(245,158,11,.25);color:var(--amber);border:1px solid rgba(245,158,11,.4)}
+.case-body{padding:12px 14px}
+.case-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.case-desc{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* ── CHAT MOCKUP ────────────────────────────── */
+.chat-compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.chat-box{background:#0d0a06;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.chat-bar{background:rgba(255,255,255,.04);padding:9px 14px;font-size:10px;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;letter-spacing:.5px;text-transform:uppercase}
+.chat-bar-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.chat-bar-dot.red{background:var(--coral)}
+.chat-msgs{padding:12px;display:flex;flex-direction:column;gap:8px}
+.cb{padding:9px 12px;border-radius:12px;font-size:11px;line-height:1.6;max-width:90%}
+.cb.u{background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.25);color:var(--cream);align-self:flex-end;border-radius:12px 12px 3px 12px}
+.cb.a{background:rgba(255,248,235,.05);border:1px solid var(--border);color:var(--text);align-self:flex-start;border-radius:12px 12px 12px 3px}
+.cb.bad{background:rgba(251,113,133,.08);border-color:rgba(251,113,133,.3);color:#fda4af}
+.cb.good{background:rgba(52,211,153,.07);border-color:rgba(52,211,153,.25);color:var(--text)}
+.chat-label{text-align:center;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:6px;border-top:1px solid var(--border)}
+.chat-label.bad{color:var(--coral)}.chat-label.good{color:var(--green)}
+
+/* ── PRODUCT VISUAL CARDS ────────────────────── */
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+.prod-card{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:all .3s}
+.prod-card:hover{border-color:var(--amber);transform:translateY(-3px);box-shadow:0 12px 32px rgba(245,158,11,.1)}
+.prod-thumb{height:110px;overflow:hidden;position:relative}
+.prod-thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.75);transition:all .4s}
+.prod-card:hover .prod-thumb img{filter:brightness(.75) saturate(1)}
+.prod-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:36px}
+.prod-info{padding:14px}
+.prod-company{font-size:9px;font-weight:700;color:var(--amber);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
+.prod-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.prod-desc{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* ── NEURAL NETWORK ANIMATION ────────────────── */
+.nnet{display:flex;align-items:center;justify-content:center;gap:0;padding:20px 0;overflow:hidden;position:relative}
+.nn-col{display:flex;flex-direction:column;justify-content:center;gap:18px;z-index:1}
+.nn-node{width:14px;height:14px;border-radius:50%;border:2px solid var(--amber);background:rgba(245,158,11,.15);animation:nn-fire 2.5s infinite}
+.nn-node:nth-child(2){animation-delay:.4s;border-color:var(--orange)}
+.nn-node:nth-child(3){animation-delay:.8s;border-color:var(--gold)}
+.nn-node:nth-child(4){animation-delay:1.2s;border-color:var(--amber)}
+.nn-col.h .nn-node{border-color:var(--purple);animation-delay-step:.3s}
+.nn-col.h .nn-node:nth-child(1){animation-delay:.2s;border-color:#a78bfa}
+.nn-col.h .nn-node:nth-child(2){animation-delay:.5s;border-color:#c4b5fd}
+.nn-col.h .nn-node:nth-child(3){animation-delay:.8s;border-color:#a78bfa}
+.nn-col.h .nn-node:nth-child(4){animation-delay:1.1s}
+.nn-col.h .nn-node:nth-child(5){animation-delay:1.4s}
+.nn-col.o .nn-node{border-color:var(--green)}
+.nn-col.o .nn-node:nth-child(1){animation-delay:.6s}
+.nn-col.o .nn-node:nth-child(2){animation-delay:1s}
+@keyframes nn-fire{0%,100%{transform:scale(1);opacity:.4;box-shadow:none}50%{transform:scale(1.4);opacity:1;box-shadow:0 0 10px currentColor}}
+.nn-svg-wrap{position:relative;flex:1;height:120px;max-width:200px}
+.nn-svg-wrap svg{position:absolute;inset:0;width:100%;height:100%}
+.nn-label{font-size:9px;font-weight:700;color:var(--dim);text-align:center;margin-top:8px;letter-spacing:1px;text-transform:uppercase}
+
+/* ── COMPANY BRAND CARDS ────────────────────── */
+.brand-row{display:flex;flex-direction:column;gap:10px}
+.brand-card{display:flex;align-items:center;gap:14px;padding:12px 14px;background:rgba(255,248,235,.03);border:1px solid var(--border);border-radius:14px;transition:all .2s;overflow:hidden;position:relative}
+.brand-card:hover{border-color:var(--border2);background:rgba(255,248,235,.06)}
+.brand-photo{width:56px;height:56px;border-radius:10px;overflow:hidden;flex-shrink:0}
+.brand-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.7) saturate(.8)}
+.brand-text{flex:1;min-width:0}
+.brand-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px}
+.brand-case{font-size:10px;font-weight:700;color:var(--amber);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px}
+.brand-stat{font-size:11px;color:var(--muted)}
+.brand-pill{flex-shrink:0;font-size:10px;font-weight:800;padding:4px 10px;border-radius:8px;background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.25)}
+
+/* ── PIPELINE FLOW ANIMATION ────────────────── */
+@keyframes flow-pulse{0%{opacity:.3;transform:scaleX(.8)}50%{opacity:1;transform:scaleX(1)}100%{opacity:.3;transform:scaleX(.8)}}
+.p-arr{animation:flow-pulse 1.4s infinite;display:inline-block}
+.p-arr:nth-of-type(2n){animation-delay:.3s}
+.p-arr:nth-of-type(3n){animation-delay:.6s}
+@keyframes slide-in-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.vis-band,.case-row,.chat-compare,.prod-grid{animation:slide-in-up .5s ease both}
+.case-row{animation-delay:.08s}.chat-compare{animation-delay:.12s}.prod-grid{animation-delay:.08s}
+
+/* ── HALLUCINATION DEMO ─────────────────────── */
+.halluc-demo{background:#0d0a06;border:1px solid rgba(251,113,133,.2);border-radius:14px;padding:18px;margin-top:14px}
+.hd-prompt{font-size:11px;color:var(--muted);margin-bottom:10px;font-family:'SF Mono','Fira Code',monospace}
+.hd-label{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.hd-bad{color:var(--coral)}.hd-good{color:var(--green)}
+.hd-text{font-size:12px;line-height:1.7;padding:10px 14px;border-radius:10px;margin-bottom:8px}
+.hd-text.bad{background:rgba(251,113,133,.07);border:1px solid rgba(251,113,133,.2);color:#fda4af}
+.hd-text.good{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);color:var(--text)}
+
+/* ── PLATFORM SHOWCASE ──────────────────────── */
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.platform-card{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:all .3s}
+.platform-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.platform-img{height:90px;overflow:hidden;position:relative}
+.platform-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.7);transition:all .4s}
+.platform-card:hover .platform-img img{filter:brightness(.75) saturate(1)}
+.platform-body{padding:14px}
+.platform-name{font-size:14px;font-weight:700;color:var(--amber);margin-bottom:4px}
+.platform-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.platform-tag{display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:6px;background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.2);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
+
