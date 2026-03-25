@@ -7,13 +7,17 @@ import { CHARTFNS } from './levels/charts.js'
 import { QUIZZES } from './data/quizzes.js'
 import { loadState, saveState, syncToServer } from './store/gameState.js'
 
+const LEVEL_NAMES = ['AI Fundamentals','Predictive AI','Prompt Engineering','Hallucinations',
+  'RAG Platforms','Agentic AI','Memory & Knowledge','Tool Use','Multi-step Agents','Deploy & Scale']
+
 export default function App() {
-  // Quiz state lives in a ref so it persists across renders but resets on retry
   const QS = useRef({})
+  const prevDoneRef = useRef([])
   const [gs, setGs] = useState(loadState)
   const [curLevel, setCurLevel] = useState(1)
-  const [levelKey, setLevelKey] = useState(0) // bumped on retry to force re-render
+  const [levelKey, setLevelKey] = useState(0)
   const [toast, setToast] = useState('')
+  const [showCert, setShowCert] = useState(false)
   const toastKey = useRef(0)
   const contentRef = useRef(null)
 
@@ -35,7 +39,7 @@ export default function App() {
     })
   }, [])
 
-  // Register interactive functions on window so inline HTML handlers work
+  // Register interactive window functions
   useEffect(() => {
     window._tokenize = (v) => {
       const toks = (v.match(/\w+|[^\w\s]|\s+/g) || []).filter(t => t.trim()).reduce((a, t) => {
@@ -67,14 +71,10 @@ export default function App() {
       const n = parseInt(v), time = Math.round(n * 14.5 / 60), cost = Math.round(n * 3.2)
       if (roiEl) roiEl.innerHTML = `⏱ <strong>${time.toLocaleString()} hrs</strong> saved/month &nbsp;·&nbsp; 💵 <strong>$${cost.toLocaleString()}</strong> saved/month &nbsp;·&nbsp; 📈 <strong>$${(cost * 12).toLocaleString()}</strong>/year`
     }
-    return () => {
-      delete window._tokenize
-      delete window._tempFx
-      delete window._roiCalc
-    }
+    return () => { delete window._tokenize; delete window._tempFx; delete window._roiCalc }
   }, [])
 
-  // Re-apply quiz DOM state after a re-render (navigation back, retry reset)
+  // Re-apply quiz DOM state after re-render
   function restoreQuizState(lvl) {
     const qs = QS.current[lvl]
     if (!qs) return
@@ -99,8 +99,9 @@ export default function App() {
     if (pct >= 70) {
       if (btn) {
         btn.removeAttribute('disabled')
-        btn.textContent = lvl < 10 ? 'Next Level →' : '🌟 Complete!'
+        btn.textContent = lvl < 10 ? 'Next Level →' : '🎓 View Certificate'
         if (lvl < 10) btn.dataset.nextlvl = lvl + 1
+        else btn.dataset.showcert = '1'
       }
     } else {
       if (btn) btn.textContent = `${pct}% — Need 70%`
@@ -108,7 +109,7 @@ export default function App() {
     }
   }
 
-  // Event delegation: opt clicks, retry, next-level
+  // Event delegation: quiz answers, retry, next level, certificate
   useEffect(() => {
     const cnt = contentRef.current
     if (!cnt) return
@@ -120,15 +121,14 @@ export default function App() {
       }
       const retry = e.target.closest('[data-retry]')
       if (retry) {
-        const lvl = parseInt(retry.dataset.retry)
-        QS.current[lvl] = null
+        QS.current[parseInt(retry.dataset.retry)] = null
         setLevelKey(k => k + 1)
         return
       }
       const nextLvl = e.target.closest('[data-nextlvl]')
-      if (nextLvl) {
-        setCurLevel(parseInt(nextLvl.dataset.nextlvl))
-      }
+      if (nextLvl) { setCurLevel(parseInt(nextLvl.dataset.nextlvl)); return }
+      const certBtn = e.target.closest('[data-showcert]')
+      if (certBtn) { setShowCert(true) }
     }
     cnt.addEventListener('click', handler)
     return () => cnt.removeEventListener('click', handler)
@@ -148,15 +148,11 @@ export default function App() {
       })
       if (btn) {
         btn.removeAttribute('disabled')
-        if (lvl < 10) {
-          btn.textContent = 'Next Level →'
-          btn.dataset.nextlvl = lvl + 1
-        } else {
-          btn.textContent = '🌟 Complete!'
-        }
+        if (lvl < 10) { btn.textContent = 'Next Level →'; btn.dataset.nextlvl = lvl + 1 }
+        else { btn.textContent = '🎓 View Certificate'; btn.dataset.showcert = '1' }
       }
-      setTimeout(() => showToast(`🏆 Level ${lvl} done! +100 XP 🎉`), 300)
-      if (lvl === 10) setTimeout(() => showToast('🌟 ALL 10 LEVELS COMPLETE! You are an AI expert!'), 500)
+      setTimeout(() => showToast(`🏆 Level ${lvl} done! +100 XP`), 300)
+      if (lvl === 10) setTimeout(() => { showToast('🌟 ALL 10 LEVELS COMPLETE!'); setTimeout(() => setShowCert(true), 800) }, 500)
     } else {
       if (btn) btn.textContent = `${pct}% — Need 70%`
       if (retryBtn) retryBtn.style.display = ''
@@ -170,13 +166,8 @@ export default function App() {
     const q = QUIZZES[lvl][qi]
     QS.current[lvl].a[qi] = sel
     const ok = sel === q.a
-    if (ok) {
-      updateGs(prev => ({ ...prev, xp: prev.xp + 10 }))
-      QS.current[lvl].score++
-      showToast('✅ +10 XP')
-    } else {
-      showToast('❌ Wrong — see explanation')
-    }
+    if (ok) { updateGs(prev => ({ ...prev, xp: prev.xp + 10 })); QS.current[lvl].score++; showToast('✅ +10 XP') }
+    else showToast('❌ Wrong — see explanation')
     document.querySelectorAll(`#q${lvl}_${qi} .opt`).forEach((b, i) => {
       b.classList.add('disabled')
       if (i === q.a) b.classList.add('correct')
@@ -187,11 +178,17 @@ export default function App() {
     if (Object.keys(QS.current[lvl].a).length === QUIZZES[lvl].length) finishQuiz(lvl)
   }, [updateGs, showToast, finishQuiz])
 
-  // Render level content with fade transition
+  // Render level content — skip re-render when only current level was just added to done
   useEffect(() => {
     const locked = curLevel > 1 && !gs.done.includes(curLevel - 1)
     const cnt = document.getElementById('cnt')
     if (!cnt) return
+
+    // If the only change is completing the current level, finishQuiz already updated DOM
+    const prev = prevDoneRef.current
+    prevDoneRef.current = gs.done
+    const added = gs.done.filter(d => !prev.includes(d))
+    if (added.length === 1 && added[0] === curLevel && !locked) return
 
     cnt.style.opacity = '0'
     const t = setTimeout(() => {
@@ -213,6 +210,24 @@ export default function App() {
     return () => clearTimeout(t)
   }, [curLevel, gs.done, levelKey])
 
+  // Spawn confetti particles when certificate opens
+  useEffect(() => {
+    if (!showCert) return
+    const el = document.getElementById('cert-confetti')
+    if (!el) return
+    const colors = ['#f59e0b','#f97316','#34d399','#60a5fa','#a78bfa','#fb7185','#fbbf24','#fff']
+    el.innerHTML = Array.from({ length: 70 }, (_, i) => {
+      const c = colors[i % colors.length]
+      const x = Math.random() * 100, y = -10 - Math.random() * 20
+      const s = 5 + Math.random() * 8
+      const d = Math.random() * 2.5
+      const spin = Math.random() > 0.5 ? 'circle' : 'square'
+      return `<div class="conf-piece ${spin}" style="left:${x}%;top:${y}%;width:${s}px;height:${s}px;background:${c};animation-delay:${d}s;animation-duration:${2 + Math.random() * 2}s"></div>`
+    }).join('')
+  }, [showCert])
+
+  const certDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+
   return (
     <>
       <Sidebar gs={gs} curLevel={curLevel} onSelect={setCurLevel} onToast={showToast} />
@@ -221,6 +236,38 @@ export default function App() {
         <div id="cnt" ref={contentRef} style={{ transition: 'opacity 0.15s ease' }} />
       </div>
       <Toast message={toast} />
+
+      {showCert && (
+        <div className="cert-overlay" onClick={() => setShowCert(false)}>
+          <div id="cert-confetti" className="cert-confetti" />
+          <div className="cert-modal" onClick={e => e.stopPropagation()}>
+            <div className="cert-glow" />
+            <div className="cert-stars">⭐ ⭐ ⭐ ⭐ ⭐</div>
+            <div className="cert-eyebrow">CERTIFICATE OF COMPLETION</div>
+            <div className="cert-brand">⚡ AI Intelligence Academy</div>
+            <div className="cert-rule" />
+            <div className="cert-awarded-text">This certifies successful mastery of</div>
+            <div className="cert-course-title">Artificial Intelligence</div>
+            <div className="cert-course-sub">From Fundamentals to Production Deployment · 2026</div>
+            <div className="cert-rule" />
+            <div className="cert-skills">
+              {LEVEL_NAMES.map((name, i) => (
+                <div key={i} className="cert-skill">
+                  <span className="cert-check">✓</span> {name}
+                </div>
+              ))}
+            </div>
+            <div className="cert-rule" />
+            <div className="cert-stats-row">
+              <div className="cert-stat"><div className="cert-stat-n">{gs.xp}</div><div className="cert-stat-l">Total XP</div></div>
+              <div className="cert-stat"><div className="cert-stat-n">10/10</div><div className="cert-stat-l">Levels</div></div>
+              <div className="cert-stat"><div className="cert-stat-n">100%</div><div className="cert-stat-l">Complete</div></div>
+            </div>
+            <div className="cert-date">Awarded on {certDate}</div>
+            <button className="btn cert-btn" onClick={() => setShowCert(false)}>Close Certificate</button>
+          </div>
+        </div>
+      )}
     </>
   )
 }

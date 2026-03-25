@@ -25,13 +25,13 @@ export function L1() {
 <div class="hero">
   <div class="hero-tag">Level 01 · AI Fundamentals</div>
   <h1>What is<br>Artificial Intelligence?</h1>
-  <p class="hero-sub">75 years of history. From Turing to GPT-4o.</p>
+  <p class="hero-sub">75 years of breakthroughs — from Turing to reasoning models and autonomous agents.</p>
   <div class="kpi-row">
     <div class="kpi"><div class="kpi-n">1950</div><div class="kpi-l">Turing Test</div></div>
     <div class="kpi"><div class="kpi-n">2017</div><div class="kpi-l">Transformer</div></div>
-    <div class="kpi"><div class="kpi-n">100M</div><div class="kpi-l">ChatGPT in 60 days</div></div>
-    <div class="kpi"><div class="kpi-n">1.76T</div><div class="kpi-l">GPT-4 params</div></div>
-    <div class="kpi"><div class="kpi-n">$185B</div><div class="kpi-l">AI invest 2024</div></div>
+    <div class="kpi"><div class="kpi-n">400M</div><div class="kpi-l">ChatGPT weekly users</div></div>
+    <div class="kpi"><div class="kpi-n">o3</div><div class="kpi-l">Top reasoning model</div></div>
+    <div class="kpi"><div class="kpi-n">$320B</div><div class="kpi-l">AI invest 2025</div></div>
   </div>
 </div>
 <div class="vis-band" style="margin-bottom:20px">
@@ -109,12 +109,12 @@ export function L2() {
 <div class="hero">
   <div class="hero-tag">Level 02 · Predictive AI & Business</div>
   <h1>AI That<br>Forecasts the Future</h1>
-  <p class="hero-sub">From Netflix to Georgian banks — predictive AI drives billions in value.</p>
+  <p class="hero-sub">From Netflix to hospital diagnostics — predictive AI drives trillions in value in 2025.</p>
   <div class="kpi-row">
     <div class="kpi"><div class="kpi-n">$1B+</div><div class="kpi-l">Netflix saves/yr</div></div>
-    <div class="kpi"><div class="kpi-n">80%</div><div class="kpi-l">Content from recs</div></div>
+    <div class="kpi"><div class="kpi-n">78%</div><div class="kpi-l">Fortune 500 use AI</div></div>
     <div class="kpi"><div class="kpi-n">99%</div><div class="kpi-l">Fraud detect accuracy</div></div>
-    <div class="kpi"><div class="kpi-n">$4.4T</div><div class="kpi-l">AI potential/yr</div></div>
+    <div class="kpi"><div class="kpi-n">$15.7T</div><div class="kpi-l">AI GDP impact 2030</div></div>
   </div>
 </div>
 <div class="g2">
@@ -156,12 +156,12 @@ export function L3() {
 <div class="hero">
   <div class="hero-tag">Level 03 · Prompt Engineering</div>
   <h1>The Art of<br>Talking to AI</h1>
-  <p class="hero-sub">Same model. Different prompt. Radically different results.</p>
+  <p class="hero-sub">Same model. Different prompt. Radically different results — now with vibe coding and o1/o3 reasoning.</p>
   <div class="kpi-row">
     <div class="kpi"><div class="kpi-n">~$300K</div><div class="kpi-l">Prompt eng. salary</div></div>
     <div class="kpi"><div class="kpi-n">3×</div><div class="kpi-l">Quality gain</div></div>
-    <div class="kpi"><div class="kpi-n">2022</div><div class="kpi-l">CoT published</div></div>
-    <div class="kpi"><div class="kpi-n">2023</div><div class="kpi-l">ToT published</div></div>
+    <div class="kpi"><div class="kpi-n">CoT</div><div class="kpi-l">Chain-of-Thought</div></div>
+    <div class="kpi"><div class="kpi-n">2025</div><div class="kpi-l">Vibe coding era</div></div>
   </div>
 </div>
 <div class="g3">
@@ -212,10 +212,10 @@ export function L4() {
 <div class="hero" style="background:linear-gradient(135deg,rgba(251,113,133,.12),rgba(249,115,22,.08),rgba(251,113,133,.06))">
   <div class="hero-tag" style="color:var(--coral)">Level 04 · AI Hallucinations</div>
   <h1>When AI<br>Makes Things Up</h1>
-  <p class="hero-sub">Real cases, real harm. Learn what causes hallucinations and how to stop them.</p>
+  <p class="hero-sub">Real cases, real harm — from Air Canada chatbot to fake court citations. Learn to stop them.</p>
   <div class="kpi-row">
-    <div class="kpi"><div class="kpi-n">~22%</div><div class="kpi-l">GPT-3 halluc. rate</div></div>
-    <div class="kpi"><div class="kpi-n">2023</div><div class="kpi-l">Mata v. Avianca case</div></div>
+    <div class="kpi"><div class="kpi-n">~3%</div><div class="kpi-l">GPT-4o halluc. rate</div></div>
+    <div class="kpi"><div class="kpi-n">2024</div><div class="kpi-l">Air Canada bot case</div></div>
     <div class="kpi"><div class="kpi-n">$5K</div><div class="kpi-l">Fine for AI cite</div></div>
     <div class="kpi"><div class="kpi-n">RAG</div><div class="kpi-l">Best fix method</div></div>
   </div>
@@ -293,11 +293,11 @@ export function L5() {
 <div class="hero">
   <div class="hero-tag">Level 05 · RAG Platforms</div>
   <h1>Retrieval-<br>Augmented Generation</h1>
-  <p class="hero-sub">Give AI a memory. Connect it to your documents, databases, and the live web.</p>
+  <p class="hero-sub">Give AI a memory. Connect it to your documents, databases, and the live web in real time.</p>
   <div class="kpi-row">
     <div class="kpi"><div class="kpi-n">2020</div><div class="kpi-l">RAG paper (Meta)</div></div>
-    <div class="kpi"><div class="kpi-n">$9B</div><div class="kpi-l">Perplexity valuation</div></div>
-    <div class="kpi"><div class="kpi-n">1536</div><div class="kpi-l">Embedding dimensions</div></div>
+    <div class="kpi"><div class="kpi-n">$14B</div><div class="kpi-l">Perplexity valuation</div></div>
+    <div class="kpi"><div class="kpi-n">3072</div><div class="kpi-l">OpenAI embed dims</div></div>
     <div class="kpi"><div class="kpi-n">256-1024</div><div class="kpi-l">Chunk size (tokens)</div></div>
   </div>
 </div>
@@ -375,12 +375,12 @@ export function L6() {
 <div class="hero">
   <div class="hero-tag">Level 06 · Agentic AI</div>
   <h1>From Chatbot<br>to Agent</h1>
-  <p class="hero-sub">Agents plan, act, observe, and iterate. They don't just respond — they pursue goals.</p>
+  <p class="hero-sub">Agents plan, act, observe, and iterate. In 2025 they browse, code, and run businesses autonomously.</p>
   <div class="kpi-row">
     <div class="kpi"><div class="kpi-n">ReAct</div><div class="kpi-l">Core framework</div></div>
     <div class="kpi"><div class="kpi-n">2024</div><div class="kpi-l">Claude Computer Use</div></div>
     <div class="kpi"><div class="kpi-n">2025</div><div class="kpi-l">OpenAI Operator</div></div>
-    <div class="kpi"><div class="kpi-n">$2B</div><div class="kpi-l">Devin valuation</div></div>
+    <div class="kpi"><div class="kpi-n">$3B</div><div class="kpi-l">Devin valuation</div></div>
   </div>
 </div>
 <div class="g1 c">
@@ -430,10 +430,10 @@ export function L7() {
 <div class="hero">
   <div class="hero-tag">Level 07 · Memory & Knowledge</div>
   <h1>How AI<br>Agents Remember</h1>
-  <p class="hero-sub">Vector databases, embeddings, and knowledge graphs power AI memory at scale.</p>
+  <p class="hero-sub">Vector databases, embeddings, and knowledge graphs power AI memory at scale in 2025.</p>
   <div class="kpi-row">
-    <div class="kpi"><div class="kpi-n">1536</div><div class="kpi-l">OpenAI embed dims</div></div>
-    <div class="kpi"><div class="kpi-n">200K</div><div class="kpi-l">Claude context window</div></div>
+    <div class="kpi"><div class="kpi-n">3072</div><div class="kpi-l">OpenAI embed dims</div></div>
+    <div class="kpi"><div class="kpi-n">1M</div><div class="kpi-l">Gemini 1.5 context</div></div>
     <div class="kpi"><div class="kpi-n">~ms</div><div class="kpi-l">Vector search latency</div></div>
     <div class="kpi"><div class="kpi-n">∞</div><div class="kpi-l">External memory size</div></div>
   </div>
@@ -497,10 +497,10 @@ export function L8() {
 <div class="hero">
   <div class="hero-tag">Level 08 · Tool Use & Function Calling</div>
   <h1>Giving AI<br>Hands</h1>
-  <p class="hero-sub">Function calling lets LLMs reach out and interact with the real world.</p>
+  <p class="hero-sub">MCP, function calling, and tool ecosystems let LLMs act — not just respond — in 2025.</p>
   <div class="kpi-row">
     <div class="kpi"><div class="kpi-n">2023</div><div class="kpi-l">OpenAI func. calling</div></div>
-    <div class="kpi"><div class="kpi-n">2024</div><div class="kpi-l">MCP by Anthropic</div></div>
+    <div class="kpi"><div class="kpi-n">Nov 2024</div><div class="kpi-l">MCP by Anthropic</div></div>
     <div class="kpi"><div class="kpi-n">1000+</div><div class="kpi-l">MCP connectors</div></div>
     <div class="kpi"><div class="kpi-n">JSON</div><div class="kpi-l">Standard format</div></div>
   </div>
@@ -564,11 +564,11 @@ export function L9() {
 <div class="hero">
   <div class="hero-tag">Level 09 · Multi-step Agents</div>
   <h1>Autonomous<br>Pipelines</h1>
-  <p class="hero-sub">Chain steps, handle failures, loop when needed, coordinate teams of agents.</p>
+  <p class="hero-sub">Chain steps, handle failures, coordinate teams of agents — multi-agent is production-ready in 2025.</p>
   <div class="kpi-row">
     <div class="kpi"><div class="kpi-n">LangGraph</div><div class="kpi-l">Top framework</div></div>
     <div class="kpi"><div class="kpi-n">Reflexion</div><div class="kpi-l">Self-correction</div></div>
-    <div class="kpi"><div class="kpi-n">2023</div><div class="kpi-l">Multi-agent mainstream</div></div>
+    <div class="kpi"><div class="kpi-n">2025</div><div class="kpi-l">Multi-agent standard</div></div>
     <div class="kpi"><div class="kpi-n">n8n</div><div class="kpi-l">Visual builder</div></div>
   </div>
 </div>
@@ -606,12 +606,12 @@ export function L10() {
 <div class="hero" style="background:linear-gradient(135deg,rgba(167,139,250,.12),rgba(245,158,11,.08),rgba(249,115,22,.06))">
   <div class="hero-tag">Level 10 · Deploy, Secure & Scale</div>
   <h1>Production<br>AI Systems</h1>
-  <p class="hero-sub">Webhooks, security, cost optimization, and chatbot deployment at scale.</p>
+  <p class="hero-sub">Ship production AI in 2025 — Vercel, Render, prompt caching, guardrails, and cost control.</p>
   <div class="kpi-row">
     <div class="kpi"><div class="kpi-n">#1</div><div class="kpi-l">Prompt injection risk</div></div>
     <div class="kpi"><div class="kpi-n">90%</div><div class="kpi-l">Cost cut w/ caching</div></div>
     <div class="kpi"><div class="kpi-n">2B+</div><div class="kpi-l">WhatsApp users</div></div>
-    <div class="kpi"><div class="kpi-n">$0.003</div><div class="kpi-l">GPT-4o-mini/1K tok</div></div>
+    <div class="kpi"><div class="kpi-n">$0.15</div><div class="kpi-l">GPT-4o/1M tokens</div></div>
   </div>
 </div>
 <div class="vis-band" style="grid-template-columns:1fr 1fr 1fr;margin-bottom:20px">
